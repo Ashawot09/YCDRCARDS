@@ -15,14 +15,14 @@ namespace YCDRCards.Cards
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            gun.damage *= 2f;
+            gun.damage *= 1.8f;
             gun.ammo += -2;
             gun.projectileColor = Color.red;
             gun.projectileSize *= 2f;
-            gun.recoil += 100;
-            gun.projectileSpeed *= 5f;
-            gun.knockback *= 2f;
-        }
+            statModifiers.movementSpeed *= 0.7f;
+            gun.projectileSpeed += 4f;
+            gun.knockback *= 1.5f;
+        }   
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             //Edits values on player when card is selected
@@ -58,14 +58,14 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "DMG",
-                    amount = "+100%",
+                    amount = "+80%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Knockback",
-                    amount = "+100%",
+                    amount = "+50%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
@@ -79,14 +79,14 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Projectile Speed",
-                    amount = "+400%",
+                    amount = "+300%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = false,
-                    stat = "Recoil",
-                    amount = "+100",
+                    stat = "Speed",
+                    amount = "70%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
