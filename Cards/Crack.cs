@@ -32,11 +32,11 @@ namespace YCDRCards.Cards
 
         protected override string GetTitle()
         {
-            return "CardName";
+            return "Crack";
         }
         protected override string GetDescription()
         {
-            return "CardDescription";
+            return "Drop Grenade?";
         }
         protected override GameObject GetCardArt()
         {
@@ -44,7 +44,7 @@ namespace YCDRCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return CardInfo.Rarity.Rare;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -54,7 +54,7 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Bullet Growth",
-                    amount = "",
+                    amount = "Some",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
