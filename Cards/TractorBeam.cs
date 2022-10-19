@@ -15,11 +15,13 @@ namespace YCDRCards.Cards
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            gun.knockback += -20f;
-            gun.attackSpeed *= -10f;
-            gun.damage *= 0.04f;
+            gun.knockback += -10f;
+            gun.attackSpeed = 0.25f;
+            gun.damage = 0.01f;
+            //fix either dmg or atkspd issues, look at spray or smth idk
             gun.projectileSpeed *= 3f;
-            gun.reloadTime += 3f;
+            gun.reloadTime = 0.05f;
+            gun.ammo += 2;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -46,7 +48,7 @@ namespace YCDRCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return CardInfo.Rarity.Uncommon;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -56,14 +58,14 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "DMG",
-                    amount = "-96%",
+                    amount = "-99%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Knockabck",
-                    amount = "-2000%",
+                    amount = "-500%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
@@ -85,6 +87,13 @@ namespace YCDRCards.Cards
                     positive = true,
                     stat = "Reload",
                     amount = "-3s",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Ammo",
+                    amount = "+2",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
