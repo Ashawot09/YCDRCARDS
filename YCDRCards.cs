@@ -33,6 +33,7 @@ namespace YCDRCards
         {
             instance = this;
             CustomCard.BuildCard<Blockforce>();
+            CustomCard.BuildCard<StrongGun>();
         }
     }
 }
