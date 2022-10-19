@@ -35,6 +35,8 @@ namespace YCDRCards
             CustomCard.BuildCard<Blockforce>();
             CustomCard.BuildCard<StrongGun>();
             CustomCard.BuildCard<ItDies>();
+            CustomCard.BuildCard<Yeet>();
+            CustomCard.BuildCard<Crack>();
         }
     }
 }
