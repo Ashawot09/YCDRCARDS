@@ -1,0 +1,71 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>C:\Users\minec\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ROUNDS\profiles\YCDRMODS\BepInEx\core\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\SteamLibrary\steamapps\common\ROUNDS\Rounds_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="BepInEx">
+      <HintPath>C:\Users\minec\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ROUNDS\profiles\YCDRMODS\BepInEx\core\BepInEx.dll</HintPath>
+    </Reference>
+    <Reference Include="BlockForcePatch">
+      <HintPath>C:\Users\minec\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ROUNDS\profiles\YCDRMODS\BepInEx\plugins\willuwontu-BlockForcePatch\BlockForcePatch.dll</HintPath>
+    </Reference>
+    <Reference Include="CardChoiceSpawnUniqueCardPatch">
+      <HintPath>C:\Users\minec\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ROUNDS\profiles\YCDRMODS\BepInEx\plugins\Pykess-CardChoiceSpawnUniqueCardPatch\CardChoiceSpawnUniqueCardPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="EvenSpreadPatch">
+      <HintPath>C:\Users\minec\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ROUNDS\profiles\YCDRMODS\BepInEx\plugins\willuwontu-EvenSpreadPatch\EvenSpreadPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="GunUnblockablePatch">
+      <HintPath>C:\Users\minec\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ROUNDS\profiles\YCDRMODS\BepInEx\plugins\Pykess-GunUnblockablePatch\GunUnblockablePatch.dll</HintPath>
+    </Reference>
+    <Reference Include="LegRaycastersPatch">
+      <HintPath>C:\Users\minec\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ROUNDS\profiles\YCDRMODS\BepInEx\plugins\Pykess-LegRaycastersPatch\LegRaycastersPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="MMHOOK_Assembly-CSharp">
+      <HintPath>C:\Users\minec\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ROUNDS\profiles\YCDRMODS\BepInEx\plugins\willis81808-MMHook\MMHOOK_Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="ModdingUtils">
+      <HintPath>C:\Users\minec\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ROUNDS\profiles\YCDRMODS\BepInEx\plugins\Pykess-ModdingUtils\ModdingUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="PlayerJumpPatch">
+      <HintPath>C:\Users\minec\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ROUNDS\profiles\YCDRMODS\BepInEx\plugins\Pykess-PlayerJumpPatch\PlayerJumpPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="RayHitReflectPatch">
+      <HintPath>C:\Users\minec\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ROUNDS\profiles\YCDRMODS\BepInEx\plugins\Pykess-RayHitReflectPatch\RayHitReflectPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="ResetAttackCooldownPatch">
+      <HintPath>C:\Users\minec\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ROUNDS\profiles\YCDRMODS\BepInEx\plugins\Senyksia-ResetAttackCooldownPatch\ResetAttackCooldownPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="RespawnPatch">
+      <HintPath>C:\Users\minec\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ROUNDS\profiles\YCDRMODS\BepInEx\plugins\willuwontu-RespawnPatch\RespawnPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="TeleportPatch">
+      <HintPath>C:\Users\minec\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ROUNDS\profiles\YCDRMODS\BepInEx\plugins\Pykess-TeleportPatch\TeleportPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="TemporaryStatsPatch">
+      <HintPath>C:\Users\minec\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ROUNDS\profiles\YCDRMODS\BepInEx\plugins\Pykess-TemporaryStatsPatch\TemporaryStatsPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="UnboundLib">
+      <HintPath>C:\Users\minec\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ROUNDS\profiles\YCDRMODS\BepInEx\plugins\willis81808-UnboundLib\UnboundLib.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\SteamLibrary\steamapps\common\ROUNDS\Rounds_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\SteamLibrary\steamapps\common\ROUNDS\Rounds_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="ZeroGBulletPatch">
+      <HintPath>C:\Users\minec\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ROUNDS\profiles\YCDRMODS\BepInEx\plugins\TeamDK-ZeroGBulletPatch\ZeroGBulletPatch.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
