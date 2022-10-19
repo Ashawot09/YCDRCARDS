@@ -9,16 +9,19 @@ using UnityEngine;
 
 namespace YCDRCards.Cards
 {
-    class Blockforce : CustomCard
+    class ItDies : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            block.forceToAdd += -10f;
-            statModifiers.health *= 1.2f;
-            block.cdAdd += -0.1f;
-            
+            gun.damage *= 2f;
+            gun.ammo += -2;
+            gun.projectileColor = Color.red;
+            gun.projectileSize *= 2f;
+            gun.recoil += 100;
+            gun.projectileSpeed *= 5f;
+            gun.knockback *= 2f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -33,11 +36,11 @@ namespace YCDRCards.Cards
 
         protected override string GetTitle()
         {
-            return "Blockforce";
+            return "It dies";
         }
         protected override string GetDescription()
         {
-            return "Nice force bro";
+            return "If it lives, it dies";
         }
         protected override GameObject GetCardArt()
         {
@@ -45,7 +48,7 @@ namespace YCDRCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return CardInfo.Rarity.Rare;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -54,15 +57,36 @@ namespace YCDRCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Health",
-                    amount = "+20%",
+                    stat = "DMG",
+                    amount = "+100%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Block Cooldown",
-                    amount = "-0.1s",
+                    stat = "Knockback",
+                    amount = "+100%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Ammo",
+                    amount = "-2",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Projectile Speed",
+                    amount = "+400%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Recoil",
+                    amount = "+100",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
