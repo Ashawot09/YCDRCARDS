@@ -15,11 +15,11 @@ namespace YCDRCards.Cards
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            gun.knockback *= -20f;
-            gun.attackSpeed *= 10f;
+            gun.knockback += -20f;
+            gun.attackSpeed *= -10f;
             gun.damage *= 0.04f;
             gun.projectileSpeed *= 3f;
-            gun.reloadTime += -3f;
+            gun.reloadTime += 3f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
