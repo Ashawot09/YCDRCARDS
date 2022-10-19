@@ -37,6 +37,8 @@ namespace YCDRCards
             CustomCard.BuildCard<ItDies>();
             CustomCard.BuildCard<Yeet>();
             CustomCard.BuildCard<Crack>();
+            CustomCard.BuildCard<SmoothMovement>();
+            CustomCard.BuildCard<TractorBeam>();
         }
     }
 }
