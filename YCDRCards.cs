@@ -32,7 +32,7 @@ namespace YCDRCards
         void Start()
         {
             instance = this;
-            CustomCard.BuildCard<MyCardName>();
+            CustomCard.BuildCard<Blockforce>();
         }
     }
 }
