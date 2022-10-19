@@ -16,8 +16,8 @@ namespace YCDRCards.Cards
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
             gun.damageAfterDistanceMultiplier += 1.05f;
-            gun.speedMOnBounce *= 0.85f;
-            gun.reflects += 5;
+            gun.speedMOnBounce *= 0.80f;
+            gun.reflects += 4;
             gun.projectileColor = Color.green;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -62,14 +62,14 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Bounces",
-                    amount = "+10",
+                    amount = "+4",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.ColdBlue;
+            return CardThemeColor.CardThemeColorType.DestructiveRed;
         }
         public override string GetModName()
         {

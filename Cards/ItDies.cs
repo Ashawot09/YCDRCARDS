@@ -20,8 +20,8 @@ namespace YCDRCards.Cards
             gun.projectileColor = Color.red;
             gun.projectileSize *= 2f;
             statModifiers.movementSpeed *= 0.7f;
-            gun.projectileSpeed += 4f;
-            gun.knockback *= 1.5f;
+            gun.projectileSpeed += 3f;
+            gun.knockback *= 1.2f;
         }   
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -65,7 +65,7 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Knockback",
-                    amount = "+50%",
+                    amount = "+20%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
@@ -93,7 +93,7 @@ namespace YCDRCards.Cards
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.ColdBlue;
+            return CardThemeColor.CardThemeColorType.DestructiveRed;
         }
         public override string GetModName()
         {
