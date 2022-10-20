@@ -41,7 +41,7 @@ namespace YCDRCards
             CustomCard.BuildCard<TractorBeam>();
             CustomCard.BuildCard<LittleBoi>();
             CustomCard.BuildCard<AutoCounter>();
-            CustomCard.BuildCard<Bombard>();
+            CustomCard.BuildCard<Stalled>();
         }
     }
 }

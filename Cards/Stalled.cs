@@ -9,20 +9,19 @@ using UnityEngine;
 
 namespace YCDRCards.Cards
 {
-    class Bombard : CustomCard
+    class Stalled : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
 
-            gun.explodeNearEnemyDamage *= 0.1f;
-            gun.projectielSimulatonSpeed *= 0.1f;
-            gun.projectileSpeed *= 1.5f;
+            gun.projectielSimulatonSpeed *= 0.6f;
+            gun.projectileSpeed *= 1.1f;
             gun.reflects += 1;
-            gun.damage *= 0.2f;
+            gun.damage *= 0.85f;
             // atk spd may be clapped
-            gun.attackSpeed *= 0.4f;
+            gun.attackSpeed *= 0.9f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -37,11 +36,11 @@ namespace YCDRCards.Cards
 
         protected override string GetTitle()
         {
-            return "Bombard";
+            return "Stalled";
         }
         protected override string GetDescription()
         {
-            return "Dont let them stop";
+            return "Slower but farther";
         }
         protected override GameObject GetCardArt()
         {
@@ -49,41 +48,35 @@ namespace YCDRCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return CardInfo.Rarity.Common;
         }
         protected override CardInfoStat[] GetStats()
         {
             return new CardInfoStat[]
             {
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Slower Bullets",
-                    amount = "",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Explosive",
-                    amount = "",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
+              
 
                 new CardInfoStat()
                 {
-                    positive = true,
+                    positive = false,
                     stat = "DMG",
-                    amount = "-80%",
+                    amount = "-10%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Attack Speed",
-                    amount = "+60%",
+                    amount = "+10%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                }
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Bullet Speed",
+                    amount = "-35%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()

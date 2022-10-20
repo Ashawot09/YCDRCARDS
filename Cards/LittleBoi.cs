@@ -16,9 +16,9 @@ namespace YCDRCards.Cards
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            statModifiers.movementSpeed *= 1.3f;
-            statModifiers.sizeMultiplier *= 0.6f;
-            statModifiers.health *= 0.9f;
+            statModifiers.movementSpeed *= 1.2f;
+            statModifiers.sizeMultiplier *= 0.9f;
+            statModifiers.health *= 0.95f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -35,11 +35,11 @@ namespace YCDRCards.Cards
 
         protected override string GetTitle()
         {
-            return "CardName";
+            return "Little Boi";
         }
         protected override string GetDescription()
         {
-            return "CardDescription";
+            return "Smaller means better right?";
         }
         protected override GameObject GetCardArt()
         {
@@ -57,21 +57,21 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Size",
-                    amount = "-40%",
+                    amount = "-10%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Speed",
-                    amount = "+30%",
+                    amount = "+20%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "-10%",
+                    amount = "-5%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
             };

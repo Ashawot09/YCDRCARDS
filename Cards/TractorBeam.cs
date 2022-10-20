@@ -56,7 +56,7 @@ namespace YCDRCards.Cards
             {
                 new CardInfoStat()
                 {
-                    positive = true,
+                    positive = false,
                     stat = "DMG",
                     amount = "-99%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned

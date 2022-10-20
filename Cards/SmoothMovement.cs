@@ -55,7 +55,7 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Speed",
-                    amount = "+35%",
+                    amount = "+30%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
