@@ -88,7 +88,7 @@ namespace YCDRCards.Cards
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.ColdBlue;
+            return CardThemeColor.CardThemeColorType.FirepowerYellow;
         }
         public override string GetModName()
         {

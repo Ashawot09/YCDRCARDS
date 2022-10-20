@@ -45,7 +45,7 @@ namespace YCDRCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return CardInfo.Rarity.Uncommon;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -83,7 +83,7 @@ namespace YCDRCards.Cards
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.ColdBlue;
+            return CardThemeColor.CardThemeColorType.DefensiveBlue;
         }
         public override string GetModName()
         {
