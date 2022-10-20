@@ -32,13 +32,16 @@ namespace YCDRCards
         void Start()
         {
             instance = this;
-            CustomCard.BuildCard<Blockforce>();
+            CustomCard.BuildCard<Disengage>();
             CustomCard.BuildCard<StrongGun>();
             CustomCard.BuildCard<ItDies>();
             CustomCard.BuildCard<Yeet>();
             CustomCard.BuildCard<Crack>();
             CustomCard.BuildCard<SmoothMovement>();
             CustomCard.BuildCard<TractorBeam>();
+            CustomCard.BuildCard<LittleBoi>();
+            CustomCard.BuildCard<AutoCounter>();
+            CustomCard.BuildCard<Bombard>();
         }
     }
 }

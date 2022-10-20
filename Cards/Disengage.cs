@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace YCDRCards.Cards
 {
-    class Blockforce : CustomCard
+    class Disengage : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
@@ -34,11 +34,11 @@ namespace YCDRCards.Cards
 
         protected override string GetTitle()
         {
-            return "Blockforce";
+            return "Disengage";
         }
         protected override string GetDescription()
         {
-            return "Disengage";
+            return "Just leave";
         }
         protected override GameObject GetCardArt()
         {

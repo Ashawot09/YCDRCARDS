@@ -9,19 +9,20 @@ using UnityEngine;
 
 namespace YCDRCards.Cards
 {
-    class TractorBeam : CustomCard
+    class Bombard : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            cardInfo.allowMultiple = false;
-            gun.knockback += -10f;
-            gun.attackSpeed = 0.25f;
-            gun.damage = 0.01f;
-            gun.projectileSpeed *= 3f;
-            gun.reloadTime = 0.05f;
-            gun.ammo += 2;
+
+            gun.explodeNearEnemyDamage *= 0.1f;
+            gun.projectielSimulatonSpeed *= 0.1f;
+            gun.projectileSpeed *= 1.5f;
+            gun.reflects += 1;
+            gun.damage *= 0.2f;
+            // atk spd may be clapped
+            gun.attackSpeed *= 0.4f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -36,11 +37,11 @@ namespace YCDRCards.Cards
 
         protected override string GetTitle()
         {
-            return "Tractor Beam";
+            return "Bombard";
         }
         protected override string GetDescription()
         {
-            return "Pulls and pulls and pulls";
+            return "Dont let them stop";
         }
         protected override GameObject GetCardArt()
         {
@@ -57,50 +58,37 @@ namespace YCDRCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "DMG",
-                    amount = "-99%",
+                    stat = "Slower Bullets",
+                    amount = "",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Knockabck",
-                    amount = "-500%",
+                    stat = "Explosive",
+                    amount = "",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "DMG",
+                    amount = "-80%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Attack Speed",
-                    amount = "+1000%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Projectile Speed",
-                    amount = "+300%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Reload",
-                    amount = "-3s",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Ammo",
-                    amount = "+2",
+                    amount = "+60%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.TechWhite;
+            return CardThemeColor.CardThemeColorType.ColdBlue;
         }
         public override string GetModName()
         {

@@ -33,11 +33,11 @@ namespace YCDRCards.Cards
 
         protected override string GetTitle()
         {
-            return "CardName";
+            return "Smooth Moves";
         }
         protected override string GetDescription()
         {
-            return "CardDescription";
+            return "Slippery Boi";
         }
         protected override GameObject GetCardArt()
         {
