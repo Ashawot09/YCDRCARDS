@@ -17,11 +17,12 @@ namespace YCDRCards.Cards
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
             cardInfo.allowMultiple = false;
             gun.knockback += -10f;
-            gun.attackSpeed = 0.25f;
+            gun.attackSpeed = 0.65f;
             gun.damage = 0.01f;
             gun.projectileSpeed *= 3f;
             gun.reloadTime = 0.05f;
             gun.ammo += 2;
+            gun.projectileColor = Color.cyan;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -48,7 +49,7 @@ namespace YCDRCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return CardInfo.Rarity.Rare;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -72,7 +73,7 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Attack Speed",
-                    amount = "+1000%",
+                    amount = "+200%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

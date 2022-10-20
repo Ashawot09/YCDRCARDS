@@ -16,12 +16,12 @@ namespace YCDRCards.Cards
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
 
-            gun.projectielSimulatonSpeed *= 0.6f;
+            gun.projectielSimulatonSpeed *= 0.75f;
             gun.projectileSpeed *= 1.1f;
-            gun.reflects += 1;
-            gun.damage *= 0.85f;
+            gun.reflects =+ 1;
+            gun.damage *= 0.95f;
             // atk spd may be clapped
-            gun.attackSpeed *= 0.9f;
+            gun.attackSpeed *= 0.85f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -60,21 +60,21 @@ namespace YCDRCards.Cards
                 {
                     positive = false,
                     stat = "DMG",
-                    amount = "-10%",
+                    amount = "-5%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Attack Speed",
-                    amount = "+10%",
+                    amount = "+15%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = false,
                     stat = "Bullet Speed",
-                    amount = "-35%",
+                    amount = "-25%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
             };

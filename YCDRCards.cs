@@ -40,7 +40,6 @@ namespace YCDRCards
             CustomCard.BuildCard<SmoothMovement>();
             CustomCard.BuildCard<TractorBeam>();
             CustomCard.BuildCard<LittleBoi>();
-            CustomCard.BuildCard<AutoCounter>();
             CustomCard.BuildCard<Stalled>();
         }
     }

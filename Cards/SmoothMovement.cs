@@ -15,7 +15,7 @@ namespace YCDRCards.Cards
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            statModifiers.movementSpeed *= 1.35f;
+            statModifiers.movementSpeed *= 1.30f;
             statModifiers.jump *= 1.15f;
             statModifiers.gravity *= 0.8f;
             statModifiers.secondsToTakeDamageOver += 1f;

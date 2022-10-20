@@ -15,10 +15,10 @@ namespace YCDRCards.Cards
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            block.forceToAdd += -8f;
-            block.forceToAddUp += 6f;
+            block.forceToAdd += -7f;
+            block.forceToAddUp += 4f;
             statModifiers.health *= 1.2f;
-            block.cdAdd += -0.4f;
+            block.cdAdd += -0.3f;
             
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -63,7 +63,7 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Block Cooldown",
-                    amount = "-0.4s",
+                    amount = "-0.6s",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

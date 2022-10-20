@@ -15,10 +15,11 @@ namespace YCDRCards.Cards
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            gun.damageAfterDistanceMultiplier += 1.1f;
+            gun.damageAfterDistanceMultiplier *= 1.1f;
             gun.speedMOnBounce *= 0.80f;
             gun.reflects += 5;
             gun.projectileColor = Color.green;
+            gun.dmgMOnBounce *= 0.8f;
             
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
