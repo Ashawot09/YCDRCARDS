@@ -41,6 +41,13 @@ namespace YCDRCards
             CustomCard.BuildCard<TractorBeam>();
             CustomCard.BuildCard<LittleBoi>();
             CustomCard.BuildCard<Stalled>();
+            CustomCard.BuildCard<Metabolise>();
+            CustomCard.BuildCard<Pinpoint>();
+            CustomCard.BuildCard<Defensive>();
+            CustomCard.BuildCard<Sacrifice>();
+            CustomCard.BuildCard<Bork>();
+            CustomCard.BuildCard<Monke>();
+            CustomCard.BuildCard<Tranqualise>();
         }
     }
 }

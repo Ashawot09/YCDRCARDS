@@ -18,8 +18,7 @@ namespace YCDRCards.Cards
 
             gun.projectielSimulatonSpeed *= 0.75f;
             gun.projectileSpeed *= 1.1f;
-            gun.reflects =+ 1;
-            gun.damage *= 0.95f;
+            gun.reflects += 1;
             // atk spd may be clapped
             gun.attackSpeed *= 0.85f;
         }
@@ -58,16 +57,9 @@ namespace YCDRCards.Cards
 
                 new CardInfoStat()
                 {
-                    positive = false,
-                    stat = "DMG",
-                    amount = "-5%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
                     positive = true,
                     stat = "Attack Speed",
-                    amount = "+15%",
+                    amount = "+30%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

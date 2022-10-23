@@ -9,12 +9,14 @@ using UnityEngine;
 
 namespace YCDRCards.Cards
 {
-    class Template : CustomCard
+    class Tranqualise : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
+            gun.slow += 15f;
+            gun.hitMovementMultiplier += 1.15f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -29,11 +31,11 @@ namespace YCDRCards.Cards
 
         protected override string GetTitle()
         {
-            return "CardName";
+            return "Tranqualise";
         }
         protected override string GetDescription()
         {
-            return "CardDescription";
+            return "Leave them be";
         }
         protected override GameObject GetCardArt()
         {
@@ -50,10 +52,17 @@ namespace YCDRCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Effect",
-                    amount = "No",
+                    stat = "Bullet Slow",
+                    amount = "30%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                }
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Movespeed on hit",
+                    amount = "+30%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()

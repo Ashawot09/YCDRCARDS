@@ -15,10 +15,9 @@ namespace YCDRCards.Cards
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            gun.damage *= 1.8f;
+            gun.damage *= 1.5f;
             gun.ammo += -2;
             gun.projectileColor = Color.red;
-            gun.projectileSize *= 2f;
             statModifiers.movementSpeed *= 0.7f;
             gun.projectileSpeed += 3f;
             gun.knockback *= 1.2f;
@@ -58,14 +57,14 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "DMG",
-                    amount = "+80%",
+                    amount = "+100%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Knockback",
-                    amount = "+20%",
+                    amount = "+40%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

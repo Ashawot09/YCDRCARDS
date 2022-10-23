@@ -17,7 +17,7 @@ namespace YCDRCards.Cards
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
             block.forceToAdd += -7f;
             block.forceToAddUp += 4f;
-            statModifiers.health *= 1.2f;
+            statModifiers.health *= 1.15f;
             block.cdAdd += -0.3f;
             
         }
@@ -56,7 +56,7 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+20%",
+                    amount = "+30%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

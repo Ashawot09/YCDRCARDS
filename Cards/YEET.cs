@@ -17,9 +17,9 @@ namespace YCDRCards.Cards
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            gun.knockback += 40f;
+            gun.knockback += 7f;
             gun.unblockable = true;
-            gun.damage *= 0.3f;
+            gun.damage *= 0.8f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -56,14 +56,14 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Knockback",
-                    amount = "+1000%",
+                    amount = "+Lots",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = false,
                     stat = "DMG",
-                    amount = "40%",
+                    amount = "-60%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

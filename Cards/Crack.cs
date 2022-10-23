@@ -17,7 +17,7 @@ namespace YCDRCards.Cards
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
             gun.damageAfterDistanceMultiplier *= 1.1f;
             gun.speedMOnBounce *= 0.80f;
-            gun.reflects += 5;
+            gun.reflects += 3;
             gun.projectileColor = Color.green;
             gun.dmgMOnBounce *= 0.8f;
             
@@ -64,7 +64,7 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Bounces",
-                    amount = "+4",
+                    amount = "+3",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
             };

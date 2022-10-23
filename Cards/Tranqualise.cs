@@ -9,20 +9,12 @@ using UnityEngine;
 
 namespace YCDRCards.Cards
 {
-    class TractorBeam : CustomCard
+    class Template : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            cardInfo.allowMultiple = false;
-            gun.knockback += -10f;
-            gun.attackSpeed = 0.7f;
-            gun.damage = 0.01f;
-            gun.projectileSpeed *= 3f;
-            gun.reloadTime = 0.05f;
-            gun.ammo += 2;
-            gun.projectileColor = Color.cyan;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -37,11 +29,11 @@ namespace YCDRCards.Cards
 
         protected override string GetTitle()
         {
-            return "Tractor Beam";
+            return "CardName";
         }
         protected override string GetDescription()
         {
-            return "Pulls and pulls and pulls";
+            return "CardDescription";
         }
         protected override GameObject GetCardArt()
         {
@@ -49,7 +41,7 @@ namespace YCDRCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return CardInfo.Rarity.Common;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -57,44 +49,16 @@ namespace YCDRCards.Cards
             {
                 new CardInfoStat()
                 {
-                    positive = false,
-                    stat = "DMG",
-                    amount = "-99%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
                     positive = true,
-                    stat = "Knockabck",
-                    amount = "-500%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Attack Speed",
-                    amount = "+200%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Projectile Speed",
-                    amount = "+300%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Ammo",
-                    amount = "+2",
+                    stat = "Effect",
+                    amount = "No",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.TechWhite;
+            return CardThemeColor.CardThemeColorType.ColdBlue;
         }
         public override string GetModName()
         {

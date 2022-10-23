@@ -15,10 +15,10 @@ namespace YCDRCards.Cards
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            statModifiers.movementSpeed *= 1.30f;
+            statModifiers.movementSpeed *= 1.20f;
             statModifiers.jump *= 1.15f;
             statModifiers.gravity *= 0.8f;
-            statModifiers.secondsToTakeDamageOver += 1f;
+            statModifiers.secondsToTakeDamageOver += 0.5f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -55,14 +55,14 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Speed",
-                    amount = "+30%",
+                    amount = "+40%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Jump Height",
-                    amount = "+15%",
+                    amount = "+30%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
