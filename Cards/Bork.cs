@@ -15,10 +15,11 @@ namespace YCDRCards.Cards
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            gun.damage *= 0.7f;
-            gun.percentageDamage += 10f;
-            gun.attackSpeed *= 0.85f;
-            statModifiers.lifeSteal += 12f;
+            gun.damage *= 0.65f;
+            gun.percentageDamage += 0.05f;
+            gun.attackSpeed *= 0.80f;
+            gun.reloadTime *= 0.9f;
+            statModifiers.lifeSteal += 0.06f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -53,9 +54,9 @@ namespace YCDRCards.Cards
             {
                 new CardInfoStat()
                 {
-                    positive = true,
+                    positive = false,
                     stat = "Damage",
-                    amount = "-60%",
+                    amount = "-70%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

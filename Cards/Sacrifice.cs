@@ -15,7 +15,7 @@ namespace YCDRCards.Cards
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            block.additionalBlocks += 2;
+            block.additionalBlocks = 1;
             block.healing += -15;
             
         }
@@ -45,7 +45,7 @@ namespace YCDRCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return CardInfo.Rarity.Uncommon;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -60,7 +60,7 @@ namespace YCDRCards.Cards
                 },
                 new CardInfoStat()
                 {
-                    positive = true,
+                    positive = false,
                     stat = "Self Damage on Block",
                     amount = "15",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned

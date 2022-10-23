@@ -62,7 +62,7 @@ namespace YCDRCards.Cards
 
                 new CardInfoStat()
                 {
-                    positive = true,
+                    positive = false,
                     stat = "Projectile Size",
                     amount = "-60%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned

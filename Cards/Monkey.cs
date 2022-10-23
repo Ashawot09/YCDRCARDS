@@ -15,13 +15,14 @@ namespace YCDRCards.Cards
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            statModifiers.health *= 1.5f;
-            statModifiers.movementSpeed *= 1.2f;
+            cardInfo.allowMultiple = false;
+            statModifiers.health *= 1.75f;
+            statModifiers.movementSpeed *= 1.25f;
             statModifiers.jump *= 1.1f;
             statModifiers.sizeMultiplier *= 1.08f;
-            block.forceToAdd += 5f;
-            block.cdAdd += 1f;
-            gun.damage *= 0.75f;
+            block.forceToAdd += 7f;
+            block.cdMultiplier *= 0.5f;
+            gun.damage *= 0.7f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {

@@ -9,12 +9,15 @@ using UnityEngine;
 
 namespace YCDRCards.Cards
 {
-    class Template : CustomCard
+    class BigBoi : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
+            statModifiers.movementSpeed *= 0.975f;
+            statModifiers.sizeMultiplier *= 1.04f;
+            statModifiers.health *= 1.15f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -29,11 +32,11 @@ namespace YCDRCards.Cards
 
         protected override string GetTitle()
         {
-            return "CardName";
+            return "BigBoi";
         }
         protected override string GetDescription()
         {
-            return "CardDescription";
+            return "Nah, chunky is funky";
         }
         protected override GameObject GetCardArt()
         {
@@ -49,11 +52,25 @@ namespace YCDRCards.Cards
             {
                 new CardInfoStat()
                 {
-                    positive = true,
-                    stat = "Effect",
-                    amount = "No",
+                    positive = false,
+                    stat = "Size",
+                    amount = "+4%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                }
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Speed",
+                    amount = "-5%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Health",
+                    amount = "+30%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()

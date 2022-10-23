@@ -69,7 +69,7 @@ namespace YCDRCards.Cards
                 },
                 new CardInfoStat()
                 {
-                    positive = true,
+                    positive = false,
                     stat = "Health",
                     amount = "-5%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned

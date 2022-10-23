@@ -18,7 +18,7 @@ namespace YCDRCards.Cards
 
             gun.projectielSimulatonSpeed *= 0.75f;
             gun.projectileSpeed *= 1.1f;
-            gun.reflects += 1;
+            gun.reflects = 1;
             // atk spd may be clapped
             gun.attackSpeed *= 0.85f;
         }

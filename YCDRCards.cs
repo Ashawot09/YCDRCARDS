@@ -4,6 +4,7 @@ using UnboundLib.Cards;
 using YCDRCards.Cards;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
+using System.Numerics;
 
 namespace YCDRCards
 {
@@ -47,7 +48,7 @@ namespace YCDRCards
             CustomCard.BuildCard<Sacrifice>();
             CustomCard.BuildCard<Bork>();
             CustomCard.BuildCard<Monke>();
-            CustomCard.BuildCard<Tranqualise>();
+            CustomCard.BuildCard<BigBoi>();
         }
     }
 }

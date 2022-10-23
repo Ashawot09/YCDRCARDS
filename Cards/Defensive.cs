@@ -16,7 +16,7 @@ namespace YCDRCards.Cards
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
             block.cdAdd += -0.3f;
-            statModifiers.regen += 3f;
+            statModifiers.regen += 4f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -31,11 +31,11 @@ namespace YCDRCards.Cards
 
         protected override string GetTitle()
         {
-            return "CardName";
+            return "Defensive";
         }
         protected override string GetDescription()
         {
-            return "CardDescription";
+            return "";
         }
         protected override GameObject GetCardArt()
         {
@@ -60,7 +60,7 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Regeneration",
-                    amount = "+3",
+                    amount = "+4",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
