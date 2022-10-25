@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
+using YCDRCARDS.MonoBehaviours;
+using YCDRCards.Cards;
+using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 namespace YCDRCards.Cards
 {
@@ -15,11 +18,11 @@ namespace YCDRCards.Cards
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            gun.damageAfterDistanceMultiplier *= 1.1f;
+            gun.damageAfterDistanceMultiplier *= 1.2f;
             gun.speedMOnBounce *= 0.80f;
-            gun.reflects += 3;
+            gun.reflects = 3;
             gun.projectileColor = Color.green;
-            gun.dmgMOnBounce *= 0.8f;
+            gun.dmgMOnBounce *= 1.05f;
             
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -75,7 +78,7 @@ namespace YCDRCards.Cards
         }
         public override string GetModName()
         {
-            return "YCDRCards.ModInitials";
+            return "YCDR";
         }
     }
 }

@@ -8,6 +8,9 @@ using UnboundLib.Cards;
 using UnityEngine;
 using static CardInfoStat;
 using static UnityEngine.Random;
+using YCDRCARDS.MonoBehaviours;
+using YCDRCards.Cards;
+using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 namespace YCDRCards.Cards
 {
@@ -17,9 +20,9 @@ namespace YCDRCards.Cards
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            statModifiers.regen += 20f;
-            statModifiers.regen *= 1.2f;
-            statModifiers.secondsToTakeDamageOver += 1.5f;
+            statModifiers.regen += 16f;
+            statModifiers.regen *= 1.1f;
+            statModifiers.secondsToTakeDamageOver += 0.75f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -75,7 +78,7 @@ namespace YCDRCards.Cards
         }
         public override string GetModName()
         {
-            return "YCDRCards.ModInitials";
+            return "YCDR";
         }
     }
 }

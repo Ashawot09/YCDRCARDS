@@ -12,34 +12,41 @@ using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 namespace YCDRCards.Cards
 {
-    class BigBoi : CustomCard
+    class Parry : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            statModifiers.movementSpeed *= 0.975f;
-            statModifiers.sizeMultiplier *= 1.04f;
-            statModifiers.health *= 1.15f;
+            block.cdMultiplier = 0.9f;
+            cardInfo.allowMultiple = false;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             //Edits values on player when card is selected
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+            var mono = player.gameObject.GetOrAddComponent<ParryMono>();
+            List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
+            list.Add(
+                objectsToSpawn
+            );
+            gun.objectsToSpawn = list.ToArray();
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             //Run when the card is removed from the player
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
+            var mono = player.gameObject.GetOrAddComponent<ParryMono>();
+            UnityEngine.GameObject.Destroy(mono);
         }
 
         protected override string GetTitle()
         {
-            return "BigBoi";
+            return "Parry";
         }
         protected override string GetDescription()
         {
-            return "Nah, chunky is funky";
+            return "Shooting instantly after block does double damage";
         }
         protected override GameObject GetCardArt()
         {
@@ -53,27 +60,13 @@ namespace YCDRCards.Cards
         {
             return new CardInfoStat[]
             {
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Size",
-                    amount = "+4%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Speed",
-                    amount = "-5%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
+                new CardInfoStat()  
                 {
                     positive = true,
-                    stat = "Health",
-                    amount = "+30%",
+                    stat = "Block Cooldown",
+                    amount = "-10%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
+                }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()

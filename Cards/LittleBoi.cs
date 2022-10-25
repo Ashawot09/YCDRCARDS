@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
+using YCDRCARDS.MonoBehaviours;
+using YCDRCards.Cards;
+using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 namespace YCDRCards.Cards
 {
@@ -82,7 +85,7 @@ namespace YCDRCards.Cards
         }
         public override string GetModName()
         {
-            return "YCDRCards.ModInitials";
+            return "YCDR";
         }
     }
 }
