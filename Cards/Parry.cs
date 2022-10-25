@@ -26,6 +26,7 @@ namespace YCDRCards.Cards
             //Edits values on player when card is selected
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             var mono = player.gameObject.GetOrAddComponent<ParryMono>();
+            ObjectsToSpawn objectsToSpawn = ((GameObject)Resources.Load("0 cards/Mayhem")).GetComponent<Gun>().objectsToSpawn[0];
             List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
             list.Add(
                 objectsToSpawn
