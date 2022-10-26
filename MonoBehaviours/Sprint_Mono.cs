@@ -23,13 +23,14 @@ namespace YCDRCARDS.MonoBehaviours
             {
                 ApplyModifiers();
             }
-            duration = 1f;
+            duration = 1.25f;
             ColorEffect effect = player.gameObject.AddComponent<ColorEffect>();
             effect.SetColor(Color.cyan);
         }
         public override void OnStart()
         {
-            characterStatModifiers.movementSpeed = 2;
+            characterStatModifiersModifier.movementSpeed_mult = 2;
+            characterStatModifiersModifier.jump_mult = 1.3f;
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
             SetLivesToEffect(int.MaxValue);
         }

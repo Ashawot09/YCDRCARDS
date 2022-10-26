@@ -12,23 +12,31 @@ using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 namespace YCDRCards.Cards
 {
-    class Stalled : CustomCard
+    class ChaosBalls : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-
-            gun.projectielSimulatonSpeed *= 0.75f;
-            gun.projectileSpeed *= 1.1f;
-            gun.reflects = 1;
-            // atk spd may be clapped
-            gun.attackSpeed *= 0.85f;
+            gun.reflects = 100;
+            gun.damage *= 0.4f;
+            gun.knockback *= 0.5f;
+            gun.gravity *= 0.7f;
+            gun.projectielSimulatonSpeed *= 0.9f;
+            gun.projectileSpeed *= 1.3f;
+            gun.projectileSize *= 2f;
+            gun.ammo = 1;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             //Edits values on player when card is selected
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+            ObjectsToSpawn objectsToSpawn = ((GameObject)Resources.Load("0 cards/Mayhem")).GetComponent<Gun>().objectsToSpawn[0];
+            List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
+            list.Add(
+                objectsToSpawn
+            );
+            gun.objectsToSpawn = list.ToArray();
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -38,11 +46,11 @@ namespace YCDRCards.Cards
 
         protected override string GetTitle()
         {
-            return "Stalled";
+            return "Chaos Balls";
         }
         protected override string GetDescription()
         {
-            return "Slower but farther";
+            return "Pong but actually fun";
         }
         protected override GameObject GetCardArt()
         {
@@ -50,33 +58,24 @@ namespace YCDRCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return CardInfo.Rarity.Rare;
         }
         protected override CardInfoStat[] GetStats()
         {
             return new CardInfoStat[]
             {
-              
-
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Attack Speed",
-                    amount = "+30%",
+                    stat = "Effect",
+                    amount = "No",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Bullet Speed",
-                    amount = "-25%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
+                }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.FirepowerYellow;
+            return CardThemeColor.CardThemeColorType.ColdBlue;
         }
         public override string GetModName()
         {

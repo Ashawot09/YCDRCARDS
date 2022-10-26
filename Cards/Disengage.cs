@@ -41,7 +41,7 @@ namespace YCDRCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Just leave";
+            return "Jump away from where your facing";
         }
         protected override GameObject GetCardArt()
         {

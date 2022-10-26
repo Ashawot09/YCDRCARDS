@@ -32,11 +32,11 @@ namespace YCDRCards.Cards
 
         protected override string GetTitle()
         {
-            return "CardName";
+            return "Template Name";
         }
         protected override string GetDescription()
         {
-            return "CardDescription";
+            return "Description";
         }
         protected override GameObject GetCardArt()
         {

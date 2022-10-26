@@ -41,7 +41,7 @@ namespace YCDRCards
             CustomCard.BuildCard<SmoothMovement>();
             CustomCard.BuildCard<TractorBeam>();
             CustomCard.BuildCard<LittleBoi>();
-            CustomCard.BuildCard<Stalled>();
+            CustomCard.BuildCard<Floater>();
             CustomCard.BuildCard<Metabolise>();
             CustomCard.BuildCard<Pinpoint>();
             CustomCard.BuildCard<Defensive>();
@@ -49,10 +49,11 @@ namespace YCDRCards
             CustomCard.BuildCard<Bork>();
             CustomCard.BuildCard<Monke>();
             CustomCard.BuildCard<BigBoi>();
+            CustomCard.BuildCard<ChaosBalls>();
             //has monobehaviours
             CustomCard.BuildCard<Parry>();
-            //CustomCard.BuildCard<Sprint>();
-            //CustomCard.BuildCard<BodyFat>();
+            CustomCard.BuildCard<Sprint>();
+            CustomCard.BuildCard<BodyFat>();
         }
     }
 }

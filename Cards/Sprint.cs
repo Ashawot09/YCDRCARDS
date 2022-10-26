@@ -46,7 +46,7 @@ namespace YCDRCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Burst of speed after blocking";
+            return "Burst of speed and jump after blocking";
         }
         protected override GameObject GetCardArt()
         {
