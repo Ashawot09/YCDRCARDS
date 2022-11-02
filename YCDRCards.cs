@@ -102,6 +102,7 @@ namespace YCDRCards
             CustomCard.BuildCard<BodyFat>((card) => BodyFat.Card = card);
 
             //Doping Class
+            CustomCard.BuildCard<DopedGate>((card) => DopedGate.Card = card);
             CustomCard.BuildCard<Steroids>((card) => Steroids.Card = card);
             CustomCard.BuildCard<Junkie>((card) => Junkie.Card = card);
             CustomCard.BuildCard<Juiced>((card) => Juiced.Card = card);
