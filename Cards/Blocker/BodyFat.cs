@@ -51,7 +51,7 @@ namespace YCDRCards.Cards.Blocker
         }
         protected override string GetDescription()
         {
-            return "Gain temporary health for 2.5 seconds after block";
+            return "Gain 100% temporary health for 2.5 seconds after block";
         }
         protected override GameObject GetCardArt()
         {

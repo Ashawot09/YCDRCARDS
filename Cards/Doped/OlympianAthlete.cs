@@ -10,6 +10,7 @@ using YCDRCARDS.MonoBehaviours;
 using YCDRCards.Cards;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using RarityLib.Utils;
+using ClassesManagerReborn.Util;
 
 namespace YCDRCards.Cards.Doped
 {
@@ -52,7 +53,10 @@ namespace YCDRCards.Cards.Doped
             //Run when the card is removed from the player
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
         }
-
+        public override void Callback()
+        {
+            gameObject.GetOrAddComponent<ClassNameMono>().className = DopedClass.name;
+        }
         protected override string GetTitle()
         {
             return "Olympian";
