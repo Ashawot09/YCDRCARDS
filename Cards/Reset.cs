@@ -12,23 +12,35 @@ using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 namespace YCDRCards.Cards
 {
-    class SmoothMovement : CustomCard
+    class Reset : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            statModifiers.movementSpeed = 1.20f;
-            statModifiers.jump = 1.15f;
-            statModifiers.gravity = 0.8f;
-            statModifiers.secondsToTakeDamageOver = 0.5f;
+            gun.damage = 55;
+            gun.spread = 0;
+            gun.projectileSpeed = 1;
+            gun.projectileSize = 1;
+            gun.projectielSimulatonSpeed = 1;
+            gun.reflects = 0;
+            gun.reloadTime = 2;
+            gun.attackSpeed = 1;
+            statModifiers.movementSpeed = 1;
+            block.cdMultiplier = 1;
+            block.forceToAdd = 0;
+            block.forceToAddUp = 0;
+
 
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
             //Edits values on player when card is selected
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
-
+            gunAmmo.maxAmmo = 5;
+            gun.numberOfProjectiles = 1;
+            gun.bursts = 0;
+            gun.destroyBulletAfter = 1;
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
@@ -38,11 +50,11 @@ namespace YCDRCards.Cards
 
         protected override string GetTitle()
         {
-            return "Smooth Moves";
+            return "Reset";
         }
         protected override string GetDescription()
         {
-            return "Slippery Boi";
+            return "brings gun stats, movespeed and block cooldown back to normal.";
         }
         protected override GameObject GetCardArt()
         {
@@ -59,36 +71,16 @@ namespace YCDRCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Speed",
-                    amount = "+40%",
+                    stat = "",
+                    amount = "",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Jump Height",
-                    amount = "+30%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Gravity",
-                    amount = "-20%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Damage over Time",
-                    amount = "+1s",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                }
+
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.DefensiveBlue;
+            return CardThemeColor.CardThemeColorType.TechWhite;
         }
         public override string GetModName()
         {

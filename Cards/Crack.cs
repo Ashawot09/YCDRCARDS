@@ -14,23 +14,25 @@ namespace YCDRCards.Cards
 {
     class Crack : CustomCard
     {
-        public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
+        public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            gun.damageAfterDistanceMultiplier *= 1.2f;
-            gun.speedMOnBounce *= 0.80f;
-            gun.reflects = 3;
+            gun.damageAfterDistanceMultiplier = 1.2f;
+            gun.speedMOnBounce = 0.75f;
             gun.projectileColor = Color.green;
-            gun.dmgMOnBounce *= 1.05f;
-            
+            gun.dmgMOnBounce = 1.3f;
+            gun.damage = 0.6f;
+
         }
-        public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
+        public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
             //Edits values on player when card is selected
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+            gun.reflects += 3;
+
         }
-        public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
+        public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
             //Run when the card is removed from the player
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
@@ -59,8 +61,15 @@ namespace YCDRCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Bullet Growth",
-                    amount = "Some",
+                    stat = "Bullet damage on bounce",
+                    amount = "+30%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "DMG",
+                    amount = "-60%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

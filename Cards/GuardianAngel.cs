@@ -12,22 +12,23 @@ using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 namespace YCDRCards.Cards
 {
-    class SmoothMovement : CustomCard
+    class GuardianAngel : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            statModifiers.movementSpeed = 1.20f;
-            statModifiers.jump = 1.15f;
-            statModifiers.gravity = 0.8f;
-            statModifiers.secondsToTakeDamageOver = 0.5f;
+            cardInfo.allowMultiple = false;
+            block.cdMultiplier = 2f;
+            block.additionalBlocks = 2;
+            statModifiers.respawns = 1;
 
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
             //Edits values on player when card is selected
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+
 
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
@@ -38,11 +39,11 @@ namespace YCDRCards.Cards
 
         protected override string GetTitle()
         {
-            return "Smooth Moves";
+            return "Guardian Angel";
         }
         protected override string GetDescription()
         {
-            return "Slippery Boi";
+            return "WAKE ME UP";
         }
         protected override GameObject GetCardArt()
         {
@@ -50,7 +51,7 @@ namespace YCDRCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return CardInfo.Rarity.Rare;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -58,37 +59,30 @@ namespace YCDRCards.Cards
             {
                 new CardInfoStat()
                 {
-                    positive = true,
-                    stat = "Speed",
-                    amount = "+40%",
+                    positive = false,
+                    stat = "Block Cooldown",
+                    amount = "+200%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Jump Height",
-                    amount = "+30%",
+                    stat = "Lives",
+                    amount = "+1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Gravity",
-                    amount = "-20%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Damage over Time",
-                    amount = "+1s",
+                    stat = "Blocks",
+                    amount = "+2",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.DefensiveBlue;
+            return CardThemeColor.CardThemeColorType.ColdBlue;
         }
         public override string GetModName()
         {

@@ -10,24 +10,39 @@ using YCDRCARDS.MonoBehaviours;
 using YCDRCards.Cards;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
-namespace YCDRCards.Cards
+namespace YCDRCards.Cards.Doped
 {
-    class SmoothMovement : CustomCard
+    class Junkie : CustomCard
     {
+        internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            statModifiers.movementSpeed = 1.20f;
-            statModifiers.jump = 1.15f;
-            statModifiers.gravity = 0.8f;
-            statModifiers.secondsToTakeDamageOver = 0.5f;
+            statModifiers.health = 1.1f;
+            statModifiers.movementSpeed = 1.1f;
+            statModifiers.jump = 1.1f;
+            statModifiers.sizeMultiplier = 0.99f;
+            block.cdMultiplier = 0.9f;
+            gun.reloadTime = 0.9f;
+            gun.gravity = 0.9f;
+            gun.projectileSpeed = 1.1f;
+            gun.projectielSimulatonSpeed = 1.1f;
+            gun.damage = 1.1f;
+            gun.attackSpeed = 0.9f;
+            gun.knockback = 1.1f;
+            gun.destroyBulletAfter = 1.1f;
 
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
             //Edits values on player when card is selected
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+
+            gunAmmo.maxAmmo += 1;
+            characterStats.lifeSteal += 0.1f;
+            characterStats.numberOfJumps += 1;
+            gun.reflects += 1;
 
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
@@ -38,11 +53,11 @@ namespace YCDRCards.Cards
 
         protected override string GetTitle()
         {
-            return "Smooth Moves";
+            return "Junkie";
         }
         protected override string GetDescription()
         {
-            return "Slippery Boi";
+            return "Increase posistive stats and reduce negatives stats more";
         }
         protected override GameObject GetCardArt()
         {
@@ -59,36 +74,43 @@ namespace YCDRCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Speed",
-                    amount = "+40%",
+                    stat = "Positive stats",
+                    amount = "+10%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Jump Height",
-                    amount = "+30%",
+                    stat = "Negative stats",
+                    amount = "-10%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Gravity",
-                    amount = "-20%",
+                    stat = "Ammo",
+                    amount = "+1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Damage over Time",
-                    amount = "+1s",
+                    stat = "Jumps",
+                    amount = "+1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                }
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Bounces",
+                    amount = "+1",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.DefensiveBlue;
+            return CardThemeColor.CardThemeColorType.MagicPink;
         }
         public override string GetModName()
         {

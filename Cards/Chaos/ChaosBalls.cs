@@ -9,40 +9,73 @@ using UnityEngine;
 using YCDRCARDS.MonoBehaviours;
 using YCDRCards.Cards;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
+using ClassesManagerReborn.Util;
+using YCDRCards.Cards.Chaos;
 
 namespace YCDRCards.Cards
 {
-    class SmoothMovement : CustomCard
+    class ChaosBalls : CustomCard
     {
+        internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            statModifiers.movementSpeed = 1.20f;
-            statModifiers.jump = 1.15f;
-            statModifiers.gravity = 0.8f;
-            statModifiers.secondsToTakeDamageOver = 0.5f;
-
+            cardInfo.allowMultiple = false;
+            gun.reflects = 50;
+            gun.damage = 0.4f;
+            gun.knockback = 0.5f;
+            gun.gravity = 1.15f;
+            gun.projectielSimulatonSpeed = 0.6f;
+            gun.projectileSpeed = 1.2f;
+            gun.projectileSize = 2.5f;
+            gun.reloadTime = 1.3f;
         }
+
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
             //Edits values on player when card is selected
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+
+            player.gameObject.AddComponent<OneBulletMono>();
+
+            player.gameObject.AddComponent<AlwaysBlockableMono>();
+
+            gun.projectileColor = Color.white;
+
+            ObjectsToSpawn objectsToSpawn = ((GameObject)Resources.Load("0 cards/Mayhem")).GetComponent<Gun>().objectsToSpawn[0];
+            List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
+            list.Add(
+                objectsToSpawn
+            );
+            gun.objectsToSpawn = list.ToArray();
 
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
             //Run when the card is removed from the player
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
+            if (player.transform.gameObject.GetComponent<OneBulletMono>() != null)
+            {
+                Destroy(player.transform.gameObject.GetComponent<OneBulletMono>());
+            }
+            if (player.transform.gameObject.GetComponent<AlwaysBlockableMono>() != null)
+            {
+                Destroy(player.transform.gameObject.GetComponent<AlwaysBlockableMono>());
+            }
+        }
+        public override void Callback()
+        {
+            gameObject.GetOrAddComponent<ClassNameMono>().className = ChaosClass.name;
         }
 
         protected override string GetTitle()
         {
-            return "Smooth Moves";
+            return "Chaos Balls";   
         }
         protected override string GetDescription()
         {
-            return "Slippery Boi";
+            return "Pong but actually fun (Bullets can always be blocked)";
         }
         protected override GameObject GetCardArt()
         {
@@ -50,7 +83,7 @@ namespace YCDRCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return CardInfo.Rarity.Rare;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -59,36 +92,37 @@ namespace YCDRCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Speed",
-                    amount = "+40%",
+                    stat = "Bounces",
+                    amount = "50",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
-                    positive = true,
-                    stat = "Jump Height",
+                    positive = false,
+                    stat = "Ammo",
+                    amount = "= 1",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "DMG",
+                    amount = "-60%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Reload Time",
                     amount = "+30%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Gravity",
-                    amount = "-20%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Damage over Time",
-                    amount = "+1s",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                }
+
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.DefensiveBlue;
+            return CardThemeColor.CardThemeColorType.EvilPurple;
         }
         public override string GetModName()
         {

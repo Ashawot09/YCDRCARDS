@@ -9,26 +9,47 @@ using UnityEngine;
 using YCDRCARDS.MonoBehaviours;
 using YCDRCards.Cards;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
+using RarityLib.Utils;
 
 namespace YCDRCards.Cards
 {
-    class SmoothMovement : CustomCard
+    class Barrage : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            statModifiers.movementSpeed = 1.20f;
-            statModifiers.jump = 1.15f;
-            statModifiers.gravity = 0.8f;
-            statModifiers.secondsToTakeDamageOver = 0.5f;
+            cardInfo.allowMultiple = false;
+            gun.attackSpeed = 0.5f;
+            gun.damage = 0.8f;
+            gun.projectielSimulatonSpeed = 0.45f;
+            gun.projectileSpeed = 1.8f;
+            gun.numberOfProjectiles = 2;
+            gun.reloadTime = 2f;
+            gun.spread = 0.35f;
 
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
             //Edits values on player when card is selected
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+            gunAmmo.maxAmmo += 6;
+            gun.recoilMuiltiplier += 0.1f;
 
+            List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
+            ObjectsToSpawn objectsToSpawn = ((GameObject)Resources.Load("0 cards/Explosive bullet")).GetComponent<Gun>().objectsToSpawn[0];
+            ObjectsToSpawn objectsToSpawn2 = ((GameObject)Resources.Load("0 cards/Timed detonation")).GetComponent<Gun>().objectsToSpawn[0];
+            ObjectsToSpawn objectsToSpawn3 = ((GameObject)Resources.Load("0 cards/Homing")).GetComponent<Gun>().objectsToSpawn[0];
+            list.Add(
+                objectsToSpawn
+            );
+            list.Add(
+                objectsToSpawn2
+            );
+            list.Add(
+                objectsToSpawn3
+            );
+            gun.objectsToSpawn = list.ToArray();
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
@@ -38,11 +59,11 @@ namespace YCDRCards.Cards
 
         protected override string GetTitle()
         {
-            return "Smooth Moves";
+            return "Barrage";
         }
         protected override string GetDescription()
         {
-            return "Slippery Boi";
+            return "Salvo of homing, exploding bullets";
         }
         protected override GameObject GetCardArt()
         {
@@ -50,7 +71,7 @@ namespace YCDRCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return RarityUtils.GetRarity("Legendary");
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -59,36 +80,44 @@ namespace YCDRCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Speed",
-                    amount = "+40%",
+                    stat = "Missle Salvo",
+                    amount = "Yes",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
-                    positive = true,
-                    stat = "Jump Height",
-                    amount = "+30%",
+                    positive = false,
+                    stat = "Reload Speed",
+                    amount = "+100%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
-                    positive = true,
-                    stat = "Gravity",
+                    positive = false,
+                    stat = "DMG",
                     amount = "-20%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Damage over Time",
-                    amount = "+1s",
+                    stat = "Projectiles",
+                    amount = "+2",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                }
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Spread",
+                    amount = "+35%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.DefensiveBlue;
+            return CardThemeColor.CardThemeColorType.DestructiveRed;
         }
         public override string GetModName()
         {

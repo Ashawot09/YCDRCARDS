@@ -9,7 +9,7 @@ using YCDRCards.Cards;
 
 namespace YCDRCARDS.MonoBehaviours
 {
-    internal class BodyFat_Mono : ReversibleEffect
+    internal class BodyFatMono : ReversibleEffect
     {
         public float duration = 0;
 

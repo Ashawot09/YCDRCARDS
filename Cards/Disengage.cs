@@ -14,22 +14,24 @@ namespace YCDRCards.Cards
 {
     class Disengage : CustomCard
     {
-        public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
+        public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            block.forceToAdd += -7f;
-            block.forceToAddUp += 4f;
-            statModifiers.health *= 1.15f;
-            block.cdAdd += -0.3f;
-            
+            cardInfo.allowMultiple = false;
+            block.forceToAdd = -7f;
+            block.forceToAddUp = 4f;
+            statModifiers.health = 1.15f;
+            block.cdAdd = -0.3f;
+
         }
-        public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
+        public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
             //Edits values on player when card is selected
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+
         }
-        public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
+        public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
             //Run when the card is removed from the player
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
@@ -66,7 +68,7 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Block Cooldown",
-                    amount = "-0.6s",
+                    amount = "-30%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

@@ -9,7 +9,7 @@ using YCDRCards.Cards;
 
 namespace YCDRCARDS.MonoBehaviours
 {
-    internal class ParryMono : ReversibleEffect
+    internal class LifebloodMono : ReversibleEffect
     {
         public float duration = 0;
 
@@ -23,14 +23,13 @@ namespace YCDRCARDS.MonoBehaviours
             {
                 ApplyModifiers();
             }
-            duration = 0.1f;
+            duration = 1.5f;
             ColorEffect effect = player.gameObject.AddComponent<ColorEffect>();
-            effect.SetColor(Color.red);
+            effect.SetColor(Color.magenta);
         }
         public override void OnStart()
         {
-            gunStatModifier.damage_mult = 2;
-            gunStatModifier.projectileColor = Color.blue;
+            characterStatModifiersModifier.lifeSteal_add = 0.75f;
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
             SetLivesToEffect(int.MaxValue);
         }

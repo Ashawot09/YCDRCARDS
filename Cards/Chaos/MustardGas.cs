@@ -9,19 +9,22 @@ using UnityEngine;
 using YCDRCARDS.MonoBehaviours;
 using YCDRCards.Cards;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
+using ClassesManagerReborn.Util;
 
-namespace YCDRCards.Cards
+namespace YCDRCards.Cards.Chaos
 {
-    class SmoothMovement : CustomCard
+    class MustardGas : CustomCard
     {
+        internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            statModifiers.movementSpeed = 1.20f;
-            statModifiers.jump = 1.15f;
-            statModifiers.gravity = 0.8f;
-            statModifiers.secondsToTakeDamageOver = 0.5f;
+            cardInfo.allowMultiple = false;
+            gun.spread = 0.1f;
+            gun.reflects = 1;
+            gun.projectileColor = Color.green;
+            gun.damage = 0.65f;
 
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
@@ -29,20 +32,31 @@ namespace YCDRCards.Cards
             //Edits values on player when card is selected
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
 
+
+            List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
+            ObjectsToSpawn objectsToSpawn = ((GameObject)Resources.Load("0 cards/Toxic cloud")).GetComponent<Gun>().objectsToSpawn[0];
+            list.Add(
+                objectsToSpawn
+            );
+            gun.objectsToSpawn = list.ToArray();
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
             //Run when the card is removed from the player
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
         }
+        public override void Callback()
+        {
+            gameObject.GetOrAddComponent<ClassNameMono>().className = ChaosClass.name;
+        }
 
         protected override string GetTitle()
         {
-            return "Smooth Moves";
+            return "Mustard Gas";
         }
         protected override string GetDescription()
         {
-            return "Slippery Boi";
+            return "Do you smell something?";
         }
         protected override GameObject GetCardArt()
         {
@@ -50,7 +64,7 @@ namespace YCDRCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return CardInfo.Rarity.Rare;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -58,37 +72,38 @@ namespace YCDRCards.Cards
             {
                 new CardInfoStat()
                 {
-                    positive = true,
-                    stat = "Speed",
-                    amount = "+40%",
+                    positive = false,
+                    stat = "Spread",
+                    amount = "10%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "DMG",
+                    amount = "-35%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Jump Height",
-                    amount = "+30%",
+                    stat = "Toxic Cloud",
+                    amount = "Yes",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Gravity",
-                    amount = "-20%",
+                    stat = "Bounces",
+                    amount = "+1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Damage over Time",
-                    amount = "+1s",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                }
+
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.DefensiveBlue;
+            return CardThemeColor.CardThemeColorType.PoisonGreen;
         }
         public override string GetModName()
         {

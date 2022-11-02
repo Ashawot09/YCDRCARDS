@@ -9,26 +9,37 @@ using UnityEngine;
 using YCDRCARDS.MonoBehaviours;
 using YCDRCards.Cards;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
+using RarityLib.Utils;
 
 namespace YCDRCards.Cards
 {
-    class SmoothMovement : CustomCard
+    class ItFollows : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            statModifiers.movementSpeed = 1.20f;
-            statModifiers.jump = 1.15f;
-            statModifiers.gravity = 0.8f;
-            statModifiers.secondsToTakeDamageOver = 0.5f;
+            statModifiers.movementSpeed = 1.5f;
+            gun.projectielSimulatonSpeed = 3.5f;
+            gun.projectileSpeed = 0.3f;
+            gun.reloadTime = 1.5f;
+            gun.ignoreWalls = true;
 
-        }
+        }   
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
             //Edits values on player when card is selected
             UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
 
+            gunAmmo.maxAmmo += 10;
+            gun.bursts += 1;
+
+            List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
+            ObjectsToSpawn objectsToSpawn = ((GameObject)Resources.Load("0 cards/Homing")).GetComponent<Gun>().objectsToSpawn[0];
+            list.Add(
+                objectsToSpawn
+            );
+            gun.objectsToSpawn = list.ToArray();
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
@@ -38,11 +49,11 @@ namespace YCDRCards.Cards
 
         protected override string GetTitle()
         {
-            return "Smooth Moves";
+            return "It Follows";
         }
         protected override string GetDescription()
         {
-            return "Slippery Boi";
+            return "If it lives, we chase";
         }
         protected override GameObject GetCardArt()
         {
@@ -50,7 +61,7 @@ namespace YCDRCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return RarityUtils.GetRarity("Legendary");
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -59,36 +70,51 @@ namespace YCDRCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Speed",
-                    amount = "+40%",
+                    stat = "Movement Speed",
+                    amount = "+50%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Jump Height",
-                    amount = "+30%",
+                    stat = "Homing",
+                    amount = "Bullets",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Gravity",
-                    amount = "-20%",
+                    stat = "Projectile",
+                    amount = "Slower but further",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Reload Time",
+                    amount = "+50%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Damage over Time",
-                    amount = "+1s",
+                    stat = "Walls",
+                    amount = "Ignores",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Ammo",
+                    amount = "+10",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
+
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.DefensiveBlue;
+            return CardThemeColor.CardThemeColorType.EvilPurple;
         }
         public override string GetModName()
         {
