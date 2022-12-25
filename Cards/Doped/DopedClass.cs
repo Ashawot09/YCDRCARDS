@@ -12,7 +12,7 @@ namespace YCDRCards.Cards.Doped
         internal static string name = "Doping";
         public override IEnumerator Init()
         {
-            UnityEngine.Debug.Log("Regestering: " + name);
+            //("Regestering: " + name);
             while (!(DopedGate.Card && Steroids.Card && Junkie.Card && Juiced.Card && OlympianAthlete.Card)) yield return null;
             ClassesRegistry.Register(DopedGate.Card, CardType.Entry);
             ClassesRegistry.Register(Steroids.Card, CardType.Card, DopedGate.Card);

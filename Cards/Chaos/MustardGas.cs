@@ -18,8 +18,7 @@ namespace YCDRCards.Cards.Chaos
         internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
-            //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
-            UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
+//
             cardInfo.allowMultiple = false;
             gun.spread = 0.1f;
             gun.reflects = 1;
@@ -29,8 +28,7 @@ namespace YCDRCards.Cards.Chaos
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
-            //Edits values on player when card is selected
-            UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+//
 
 
             List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
@@ -42,8 +40,7 @@ namespace YCDRCards.Cards.Chaos
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
-            //Run when the card is removed from the player
-            UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
+//
         }
         public override void Callback()
         {

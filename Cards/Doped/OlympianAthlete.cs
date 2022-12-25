@@ -19,39 +19,37 @@ namespace YCDRCards.Cards.Doped
         internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
-            //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
-            UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been setup.");
-            statModifiers.health = 1.16f;
-            statModifiers.movementSpeed = 1.16f;
-            statModifiers.jump = 1.16f;
-            statModifiers.sizeMultiplier = 0.984f;
-            block.cdMultiplier = 0.84f;
-            gun.reloadTime = 0.84f;
-            gun.gravity = 0.84f;
-            gun.projectileSpeed = 1.16f;
-            gun.projectielSimulatonSpeed = 1.16f;
-            gun.damage = 1.16f;
-            gun.attackSpeed = 0.84f;
-            gun.knockback = 1.16f;
-            gun.destroyBulletAfter = 1.16f;
+            //
+            cardInfo.allowMultiple = false;
+            statModifiers.health = 1.5f;
+            statModifiers.movementSpeed = 1.5f;
+            statModifiers.jump = 1.5f;
+            statModifiers.sizeMultiplier = 0.95f;
+            block.cdMultiplier = 0.5f;
+            gun.reloadTime = 0.5f;
+            gun.gravity = 0.5f;
+            gun.projectileSpeed = 1.5f;
+            gun.projectielSimulatonSpeed = 1.5f;
+            gun.damage = 1.5f;
+            gun.attackSpeed = 0.5f;
+            gun.knockback = 1.5f;
+            gun.destroyBulletAfter = 1.5f;
 
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
-            //Edits values on player when card is selected
-            UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+//
 
-            gunAmmo.maxAmmo += 2;
-            characterStats.lifeSteal += 0.16f;
-            characterStats.numberOfJumps += 1;
-            gun.reflects += 2;
-            characterStats.regen += 2;
+            gunAmmo.maxAmmo += 5;
+            characterStats.lifeSteal += 0.5f;
+            characterStats.numberOfJumps += 3;
+            gun.reflects += 5;
+            characterStats.regen += 10;
 
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
-            //Run when the card is removed from the player
-            UnityEngine.Debug.Log($"[{YCDRCards.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
+//
         }
         public override void Callback()
         {

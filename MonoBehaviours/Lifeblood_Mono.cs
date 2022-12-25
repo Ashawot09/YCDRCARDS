@@ -23,7 +23,7 @@ namespace YCDRCARDS.MonoBehaviours
             {
                 ApplyModifiers();
             }
-            duration = 1.5f;
+            duration = 2f;
             ColorEffect effect = player.gameObject.AddComponent<ColorEffect>();
             effect.SetColor(Color.magenta);
         }

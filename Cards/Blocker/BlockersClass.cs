@@ -12,7 +12,7 @@ namespace YCDRCards.Cards.Blocker
         internal static string name = "Blockers";
         public override IEnumerator Init()
         {
-            UnityEngine.Debug.Log("Regestering: " + name);
+            //("Regestering: " + name);
             while (!(Blocker.Card && Warden.Card && BodyFat.Card && Mending.Card)) yield return null;
             ClassesRegistry.Register(Blocker.Card, CardType.Entry);
             ClassesRegistry.Register(Warden.Card, CardType.Card, Blocker.Card);
