@@ -48,7 +48,7 @@ namespace YCDRCards.Cards
         }
         protected override string GetDescription()
         {
-            return "When below 40% health; gain 75% speed, reload, attack speed and damage.";
+            return "When below 40% health; gain 85% speed, reload, attack speed and damage.";
         }
         protected override GameObject GetCardArt()
         {
@@ -66,7 +66,7 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "BERSERK stats",
-                    amount = "+80%",
+                    amount = "+85%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

@@ -18,17 +18,18 @@ namespace YCDRCards.Cards
         {
             //
             cardInfo.allowMultiple = false;
+            gun.damage = 1.2f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
 //
-            gun.damage = 1;
             gun.spread = 0;
             gun.projectileSpeed = 1;
             gun.projectileSize = 1;
             gun.projectielSimulatonSpeed = 1;
             gun.reflects = 0;
             gun.destroyBulletAfter = 1;
+            gun.bodyRecoil = 0;
 
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
@@ -43,7 +44,7 @@ namespace YCDRCards.Cards
         }
         protected override string GetDescription()
         {
-            return "brings damage, spread, bounces, projectile changes back to default.";
+            return "brings spread, bounces, and recoil back to default.";
         }
         protected override GameObject GetCardArt()
         {
@@ -60,8 +61,8 @@ namespace YCDRCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "",
-                    amount = "",
+                    stat = "Damage",
+                    amount = "+20%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
 

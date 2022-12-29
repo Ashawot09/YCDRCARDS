@@ -23,12 +23,11 @@ namespace YCDRCards.Cards.Blocker
             cardInfo.allowMultiple = false;
             block.cdMultiplier = 1.4f;
             statModifiers.health = 1.4f;
-
+            block.healing = (statModifiers.health);
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
 //
-
             var mono = player.gameObject.GetOrAddComponent<BodyFatMono>();
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)

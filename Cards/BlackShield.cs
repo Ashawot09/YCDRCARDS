@@ -8,39 +8,34 @@ using UnboundLib.Cards;
 using UnityEngine;
 using YCDRCARDS.MonoBehaviours;
 using YCDRCards.Cards;
+using YCDRCARDS.Extensions;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 namespace YCDRCards.Cards
 {
-    class Bork : CustomCard
+    class BlackShield : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
-//
-            gun.damage = 0.65f;
-            gun.percentageDamage = 0.15f;
-            gun.attackSpeed = 0.7f;
-            gun.reloadTime = 0.9f;
-            statModifiers.lifeSteal = 0.3f;
 
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
-//
-
+            characterStats.GetAdditionalData().willpower *= 3f;
+            characterStats.GetAdditionalData().MassModifier *= 2000f;
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
-//
+
         }
 
         protected override string GetTitle()
         {
-            return "Blade Of the Ruined King";
+            return "Black Shield";
         }
         protected override string GetDescription()
         {
-            return "Try building health now!";
+            return "Immune to all crowd control";
         }
         protected override GameObject GetCardArt()
         {
@@ -56,37 +51,16 @@ namespace YCDRCards.Cards
             {
                 new CardInfoStat()
                 {
-                    positive = false,
-                    stat = "Damage",
-                    amount = "-35%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
                     positive = true,
-                    stat = "Percentage Damage",
-                    amount = "15%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Attack Speed",
-                    amount = "+60%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Life Steal",
-                    amount = "+30%",
+                    stat = "Stuns",
+                    amount = "None",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.FirepowerYellow;
+            return CardThemeColor.CardThemeColorType.EvilPurple;
         }
         public override string GetModName()
         {

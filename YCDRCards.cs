@@ -72,7 +72,7 @@ namespace YCDRCards
             CustomCard.BuildCard<Digger>();
             CustomCard.BuildCard<GuardianAngel>();
             CustomCard.BuildCard<Cockroach>();
-            CustomCard.BuildCard<Barrage>();
+            CustomCard.BuildCard<Salvo>();
             CustomCard.BuildCard<Reset>();
             CustomCard.BuildCard<MonsterSlayer>();
             CustomCard.BuildCard<Longshot>();
@@ -84,7 +84,8 @@ namespace YCDRCards
             //has monobehaviours
             CustomCard.BuildCard<Parry>();
             CustomCard.BuildCard<Sprint>();
-            CustomCard.BuildCard<Lifeblood>();
+            CustomCard.BuildCard<Lifeblood>(); 
+            CustomCard.BuildCard<BlackShield>();
 
             //Chaos Class
             CustomCard.BuildCard<ChaosTime>((card) => ChaosTime.Card = card);

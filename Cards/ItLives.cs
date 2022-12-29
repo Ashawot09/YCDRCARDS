@@ -29,7 +29,7 @@ namespace YCDRCards.Cards
         {
 //
 
-            characterStats.numberOfJumps += 1;
+            characterStats.numberOfJumps += 2;
             characterStats.regen *= 1.2f;
 
         }

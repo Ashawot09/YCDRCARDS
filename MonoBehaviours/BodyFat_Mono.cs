@@ -30,7 +30,6 @@ namespace YCDRCARDS.MonoBehaviours
         public override void OnStart()
         {
             characterDataModifier.maxHealth_mult = 2f;
-            characterDataModifier.health_mult = 2f;
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
             SetLivesToEffect(int.MaxValue);
         }

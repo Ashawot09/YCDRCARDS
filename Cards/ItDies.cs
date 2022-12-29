@@ -18,11 +18,12 @@ namespace YCDRCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
 //
-            gun.damage = 4f;
+            gun.damage = 1.5f;
+            gun.percentageDamage = 0.5f;
             gun.projectileColor = Color.red;
             statModifiers.movementSpeed = 0.7f;
             gun.projectileSpeed = 3f;
-            gun.knockback = 10f;
+            gun.knockback = 20f;
             gun.reloadTime = 1.4f;
 
         }   
@@ -68,7 +69,7 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "DMG",
-                    amount = "+200%",
+                    amount = "150%, +50% of enemy health",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

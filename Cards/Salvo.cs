@@ -13,25 +13,26 @@ using RarityLib.Utils;
 
 namespace YCDRCards.Cards
 {
-    class Barrage : CustomCard
+    class Salvo : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
 //
             cardInfo.allowMultiple = false;
-            gun.attackSpeed = 0.5f;
+            gun.attackSpeed = 1.2f;
             gun.damage = 0.8f;
             gun.projectielSimulatonSpeed = 0.45f;
             gun.projectileSpeed = 1.8f;
-            gun.numberOfProjectiles = 2;
+            gun.numberOfProjectiles = 4;
             gun.reloadTime = 2f;
-            gun.spread = 0.35f;
 
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
 //
-            gunAmmo.maxAmmo += 6;
+            gunAmmo.maxAmmo += 9;
+            gun.spread = 0;
+            gun.spread += 0.35f;
             gun.recoilMuiltiplier += 0.1f;
 
             List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
@@ -99,7 +100,7 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Projectiles",
-                    amount = "+2",
+                    amount = "+4",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
