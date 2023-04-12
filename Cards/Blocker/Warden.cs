@@ -11,7 +11,7 @@ using YCDRCards.Cards;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ClassesManagerReborn.Util;
 using RarityLib.Utils;
-using YCDRCards.Cards.Chaos;
+using YCDRCards.Cards.Blocker;
 
 namespace YCDRCards.Cards.Blocker
 {
@@ -22,11 +22,12 @@ namespace YCDRCards.Cards.Blocker
         {
             //
             cardInfo.allowMultiple = false;
-            statModifiers.health = 1.8f;
-            block.healing = 12;
+            statModifiers.health = 2f;
+            block.healing = 50;
             block.cdMultiplier = 1.5f;
-            gun.damage = 0.75f;
+            gun.damage = 0.25f;
             gun.projectileSpeed = 0.85f;
+            gun.destroyBulletAfter = 0.8f;
         }
 
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
@@ -68,21 +69,21 @@ namespace YCDRCards.Cards.Blocker
                 {
                     positive = true,
                     stat = "Blocks",
-                    amount = "+10!!",
+                    amount = "+6!",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+80%",
+                    amount = "+100%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Heal on Block",
-                    amount = "12 per block",
+                    amount = "50 per block",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
@@ -96,7 +97,7 @@ namespace YCDRCards.Cards.Blocker
                 {
                     positive = false,
                     stat = "DMG",
-                    amount = "-25%",
+                    amount = "-75%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

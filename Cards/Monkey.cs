@@ -8,6 +8,7 @@ using UnboundLib.Cards;
 using UnityEngine;
 using YCDRCARDS.MonoBehaviours;
 using YCDRCards.Cards;
+using YCDRCARDS.Extensions;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 
 namespace YCDRCards.Cards
@@ -21,17 +22,17 @@ namespace YCDRCards.Cards
             statModifiers.health = 2f;
             statModifiers.movementSpeed = 1.3f;
             statModifiers.jump = 1.15f;
-            statModifiers.sizeMultiplier = 1.15f;
+            statModifiers.sizeMultiplier = 1.25f;
             block.forceToAdd = 7f;
             gun.knockback = 3f;
-            block.cdMultiplier = 0.65f;
+            block.cdMultiplier = 0.5f;
             gun.damage = 0.7f;
 
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
-//
-
+            //
+            characterStats.GetAdditionalData().MassModifier *= 200f;
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {

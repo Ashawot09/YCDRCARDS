@@ -26,7 +26,7 @@ namespace YCDRCards.Cards
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
 //
-            health.regeneration *= 1.15f;
+            health.regeneration *= 1.25f;
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
@@ -57,7 +57,7 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Regneration",
-                    amount = "+20 + 20%",
+                    amount = "+20 + 25%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

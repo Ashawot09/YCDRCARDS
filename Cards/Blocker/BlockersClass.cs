@@ -13,11 +13,17 @@ namespace YCDRCards.Cards.Blocker
         public override IEnumerator Init()
         {
             //("Regestering: " + name);
-            while (!(Blocker.Card && Warden.Card && BodyFat.Card && Mending.Card)) yield return null;
+            while (!(Blocker.Card && Warden.Card && BodyFat.Card && Mending.Card && Karma.Card)) yield return null;
             ClassesRegistry.Register(Blocker.Card, CardType.Entry);
             ClassesRegistry.Register(Warden.Card, CardType.Card, Blocker.Card);
             ClassesRegistry.Register(BodyFat.Card, CardType.Card, Blocker.Card);
             ClassesRegistry.Register(Mending.Card, CardType.Card, Blocker.Card);
+            ClassesRegistry.Register(Karma.Card, CardType.Card, Blocker.Card);
+        }
+        public override IEnumerator PostInit()
+        {
+
+            yield break;
         }
     };
 }

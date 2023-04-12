@@ -8,6 +8,7 @@ using UnboundLib.Cards;
 using UnityEngine;
 using YCDRCARDS.MonoBehaviours;
 using YCDRCards.Cards;
+using YCDRCARDS.Extensions;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using RarityLib.Utils;
 using ClassesManagerReborn.Util;
@@ -45,6 +46,7 @@ namespace YCDRCards.Cards.Doped
             characterStats.numberOfJumps += 3;
             gun.reflects += 5;
             characterStats.regen += 10;
+            characterStats.GetAdditionalData().MassModifier *= 200f;
 
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)

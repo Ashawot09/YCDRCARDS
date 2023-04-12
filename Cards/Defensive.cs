@@ -18,13 +18,13 @@ namespace YCDRCards.Cards
         {
             //
             block.cdMultiplier = 0.7f;
-            statModifiers.regen = 4f;
+            statModifiers.regen = 5f;
 
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
 //
-
+            health.regeneration *= 1.05f;
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
@@ -62,7 +62,7 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Regeneration",
-                    amount = "+4",
+                    amount = "+5 * 5%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

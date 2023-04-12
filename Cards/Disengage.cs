@@ -20,8 +20,8 @@ namespace YCDRCards.Cards
             cardInfo.allowMultiple = false;
             block.forceToAdd = -7f;
             block.forceToAddUp = 4f;
-            statModifiers.health = 1.15f;
-            block.cdMultiplier = 0.7f;
+            statModifiers.health = 1.4f;
+            block.cdMultiplier = 0.65f;
 
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
@@ -58,14 +58,14 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+30%",
+                    amount = "+40%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Block Cooldown",
-                    amount = "-30%",
+                    amount = "-35%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

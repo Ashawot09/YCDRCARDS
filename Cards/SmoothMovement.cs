@@ -20,7 +20,7 @@ namespace YCDRCards.Cards
             statModifiers.movementSpeed = 1.20f;
             statModifiers.jump = 1.15f;
             statModifiers.gravity = 0.8f;
-            statModifiers.secondsToTakeDamageOver = 0.5f;
+            statModifiers.secondsToTakeDamageOver = 1f;
 
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
@@ -47,7 +47,7 @@ namespace YCDRCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return CardInfo.Rarity.Common;
         }
         protected override CardInfoStat[] GetStats()
         {

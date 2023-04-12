@@ -58,7 +58,7 @@ namespace YCDRCards.Cards
                 {
                     positive = false,
                     stat = "Block Cooldown",
-                    amount = "+200%",
+                    amount = "+100%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

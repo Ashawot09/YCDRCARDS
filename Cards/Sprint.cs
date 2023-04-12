@@ -9,6 +9,8 @@ using UnityEngine;
 using YCDRCARDS.MonoBehaviours;
 using YCDRCards.Cards;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
+using static CardInfoStat;
+using static UnityEngine.Random;
 
 namespace YCDRCards.Cards
 {
@@ -18,17 +20,12 @@ namespace YCDRCards.Cards
         {
 
             cardInfo.allowMultiple = false;
+            block.cdMultiplier = 0.9f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
 
             var mono = player.gameObject.GetOrAddComponent<SprintMono>();
-            ObjectsToSpawn objectsToSpawn = ((GameObject)Resources.Load("0 cards/Mayhem")).GetComponent<Gun>().objectsToSpawn[0];
-            List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
-            list.Add(
-                objectsToSpawn
-            );
-            gun.objectsToSpawn = list.ToArray();
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
@@ -62,6 +59,13 @@ namespace YCDRCards.Cards
                     positive = false,
                     stat = "",
                     amount = "",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Block Cooldown",
+                    amount = "-10%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

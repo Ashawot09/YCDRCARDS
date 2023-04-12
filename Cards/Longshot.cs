@@ -19,7 +19,6 @@ namespace YCDRCards.Cards
 //
             gun.damageAfterDistanceMultiplier = 2f;
             gun.damage = 0.5f;
-            gun.destroyBulletAfter = 1.5f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {

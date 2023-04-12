@@ -13,7 +13,7 @@ using ClassesManagerReborn.Util;
 
 namespace YCDRCards.Cards.Chaos
 {
-    class Seeker : CustomCard
+    class MoreBalls : CustomCard
     {
         internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)

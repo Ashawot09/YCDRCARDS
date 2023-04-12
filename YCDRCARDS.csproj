@@ -54,6 +54,9 @@
     <Reference Include="RespawnPatch">
       <HintPath>C:\Users\minec\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ROUNDS\profiles\YCDRMODS\BepInEx\plugins\willuwontu-RespawnPatch\RespawnPatch.dll</HintPath>
     </Reference>
+    <Reference Include="SonigonAudioEngine.Runtime">
+      <HintPath>..\..\SteamLibrary\steamapps\common\ROUNDS\Rounds_Data\Managed\SonigonAudioEngine.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="TeleportPatch">
       <HintPath>C:\Users\minec\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ROUNDS\profiles\YCDRMODS\BepInEx\plugins\Pykess-TeleportPatch\TeleportPatch.dll</HintPath>
     </Reference>
@@ -75,6 +78,10 @@
     <Reference Include="ZeroGBulletPatch">
       <HintPath>C:\Users\minec\AppData\Roaming\Thunderstore Mod Manager\DataFolder\ROUNDS\profiles\YCDRMODS\BepInEx\plugins\TeamDK-ZeroGBulletPatch\ZeroGBulletPatch.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="TempEffects\" />
   </ItemGroup>
 
 </Project>

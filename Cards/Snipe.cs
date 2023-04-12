@@ -17,11 +17,10 @@ namespace YCDRCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
 
-            gun.projectileSpeed = 1.2f;
+            gun.projectileSpeed = 1.45f;
             gun.projectielSimulatonSpeed = 1.3f;
             gun.projectileSize = 0.95f;
-            gun.damage = 1.15f;
-            gun.destroyBulletAfter = 1.15f;
+            gun.damage = 1.25f;
 
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
@@ -58,12 +57,12 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Bullet Speed",
-                    amount = "+30%",
+                    amount = "+75%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
-                    positive = true,
+                    positive = false,
                     stat = "Bullet size",
                     amount = "-5%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
@@ -72,7 +71,7 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "15%",
+                    amount = "25%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
             };

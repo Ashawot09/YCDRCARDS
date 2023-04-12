@@ -23,8 +23,20 @@ namespace YCDRCards.Cards
             gun.damage = 0.8f;
             gun.projectielSimulatonSpeed = 0.45f;
             gun.projectileSpeed = 1.8f;
-            gun.numberOfProjectiles = 4;
+            gun.numberOfProjectiles = 2;
             gun.reloadTime = 2f;
+            gun.bursts = 2;
+
+            var obj = new GameObject("NoCollide");
+            obj.hideFlags = HideFlags.HideAndDontSave;
+            obj.AddComponent<NoBulletCollide>();
+            gun.objectsToSpawn = new[]
+            {
+                new ObjectsToSpawn
+                {
+                    AddToProjectile = obj,
+                }
+            };
 
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
@@ -57,11 +69,11 @@ namespace YCDRCards.Cards
 
         protected override string GetTitle()
         {
-            return "Barrage";
+            return "Salvo";
         }
         protected override string GetDescription()
         {
-            return "Salvo of homing, exploding bullets";
+            return "Barrage of homing, exploding bullets";
         }
         protected override GameObject GetCardArt()
         {

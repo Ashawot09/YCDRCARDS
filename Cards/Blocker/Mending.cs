@@ -11,10 +11,9 @@ using YCDRCards.Cards;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ClassesManagerReborn.Util;
 using RarityLib.Utils;
-using YCDRCards.Cards.Chaos;
 using YCDRCards.Cards.Blocker;
 
-namespace YCDRCards.Cards
+namespace YCDRCards.Cards.Blocker
 {
     class Mending : CustomCard
     {
@@ -22,13 +21,14 @@ namespace YCDRCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
 //
-            statModifiers.health = 1.1f;
-            block.healing = 10;
+            statModifiers.health = 1.2f;
+            block.healing = 25;
         }
 
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
-//
+            //
+            block.cdAdd = -0.75f;
 
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
@@ -64,14 +64,21 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Heal on Block",
-                    amount = "+10 per block",
+                    amount = "+25 per block",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+10%",
+                    amount = "+20%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Shield CD",
+                    amount = "-0.75sec",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
             };

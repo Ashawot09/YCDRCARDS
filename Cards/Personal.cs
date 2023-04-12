@@ -18,7 +18,17 @@ namespace YCDRCards.Cards
         {
 
             gun.reloadTime = 1.15f;
-        
+            var obj = new GameObject("NoCollide");
+            obj.hideFlags = HideFlags.HideAndDontSave;
+            obj.AddComponent<NoBulletCollide>();
+            gun.objectsToSpawn = new[]
+            {
+                new ObjectsToSpawn
+                {
+                    AddToProjectile = obj,
+                }
+            };
+
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
@@ -26,6 +36,8 @@ namespace YCDRCards.Cards
             gunAmmo.maxAmmo += 5;
             gun.numberOfProjectiles += 4;
             gun.destroyBulletAfter = 0.4f;
+            gun.projectileSpeed = 2f;
+            gun.spread = 0.2f;
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {

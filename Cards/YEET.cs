@@ -19,8 +19,8 @@ namespace YCDRCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
 
-            gun.knockback = 10f;
-            gun.damage = 0.7f;
+            gun.knockback = 15f;
+            gun.damage = 0.85f;
 
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
@@ -57,14 +57,14 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Knockback",
-                    amount = "+1000%",
+                    amount = "+1400%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = false,
                     stat = "DMG",
-                    amount = "-30%",
+                    amount = "-15%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

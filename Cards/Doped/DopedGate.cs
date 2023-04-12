@@ -21,13 +21,13 @@ namespace YCDRCards.Cards.Doped
         {
 //
             cardInfo.allowMultiple = false;
-            
+            gun.damage = 1.2f;
+            statModifiers.health = 1.2f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
             //
-            characterStats.health = 1.15f;
-            gun.damage = 1.15f;
+            
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
@@ -52,7 +52,7 @@ namespace YCDRCards.Cards.Doped
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return CardInfo.Rarity.Common;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -62,14 +62,14 @@ namespace YCDRCards.Cards.Doped
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+15%",
+                    amount = "+20%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+15%",
+                    amount = "+20%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
             };

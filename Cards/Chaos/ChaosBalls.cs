@@ -12,23 +12,23 @@ using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ClassesManagerReborn.Util;
 using YCDRCards.Cards.Chaos;
 
-namespace YCDRCards.Cards
+namespace YCDRCards.Cards.Chaos
 {
     class ChaosBalls : CustomCard
     {
-        internal static CardInfo Card = null;
+        internal static CardInfo Card;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
 //
             cardInfo.allowMultiple = false;
             gun.reflects = 50;
             gun.damage = 0.4f;
-            gun.knockback = 0.5f;
+            gun.knockback = 0.35f;
             gun.gravity = 1.15f;
             gun.projectielSimulatonSpeed = 0.6f;
             gun.projectileSpeed = 1.2f;
-            gun.projectileSize = 2.5f;
-            gun.reloadTime = 1.3f;
+            gun.projectileSize = 2.75f;
+            gun.reloadTime = 1.4f;
 
             //unbulleted bullets 
             var obj = new GameObject("NoCollide");
@@ -93,7 +93,7 @@ namespace YCDRCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return CardInfo.Rarity.Common;
         }
         protected override CardInfoStat[] GetStats()
         {

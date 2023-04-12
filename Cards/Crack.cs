@@ -17,10 +17,9 @@ namespace YCDRCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
 //
-            gun.damageAfterDistanceMultiplier = 1.2f;
-            gun.speedMOnBounce = 0.75f;
+            gun.speedMOnBounce = 0.55f;
             gun.projectileColor = Color.green;
-            gun.dmgMOnBounce = 1.3f;
+            gun.dmgMOnBounce = 1.35f;
             gun.damage = 0.6f;
 
         }
@@ -59,14 +58,14 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Bullet damage on bounce",
-                    amount = "+30%",
+                    amount = "+35%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = false,
                     stat = "DMG",
-                    amount = "-60%",
+                    amount = "-40%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

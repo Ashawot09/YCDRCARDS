@@ -9,6 +9,7 @@ using UnityEngine;
 using YCDRCARDS.MonoBehaviours;
 using YCDRCards.Cards;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
+using RarityLib.Utils;
 
 namespace YCDRCards.Cards
 {
@@ -20,8 +21,9 @@ namespace YCDRCards.Cards
             cardInfo.allowMultiple = false;
             statModifiers.health = 0.1f;
             statModifiers.sizeMultiplier = 0.8f;
-            statModifiers.movementSpeed = 1.4f;
-            statModifiers.jump = 1.2f;
+            statModifiers.movementSpeed = 1.65f;
+            statModifiers.jump = 1.35f;
+            statModifiers.gravity = 1.15f;
 
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
@@ -48,7 +50,7 @@ namespace YCDRCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return RarityUtils.GetRarity("Legendary");
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -58,35 +60,35 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Lives",
-                    amount = "+2",
+                    amount = "+1",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = false,
                     stat = "Health",
-                    amount = "-90%",
+                    amount = "-70%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Movespeed",
-                    amount = "+40%",
+                    amount = "+65%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Jump Height",
-                    amount = "+20%",
+                    amount = "+25%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Size",
-                    amount = "-20%",
+                    amount = "-25%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
 

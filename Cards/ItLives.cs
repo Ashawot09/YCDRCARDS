@@ -18,11 +18,11 @@ namespace YCDRCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
 //
-            statModifiers.health = 2f;
+            statModifiers.health = 2.25f;
             statModifiers.regen = 25;
-            statModifiers.secondsToTakeDamageOver = 2f;
+            statModifiers.secondsToTakeDamageOver = 1.5f;
             statModifiers.sizeMultiplier = 0.95f;
-            statModifiers.movementSpeed = 0.3f;
+            statModifiers.movementSpeed = 0.35f;
 
         }   
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
@@ -30,7 +30,7 @@ namespace YCDRCards.Cards
 //
 
             characterStats.numberOfJumps += 2;
-            characterStats.regen *= 1.2f;
+            characterStats.regen *= 1.4f;
 
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
@@ -62,28 +62,28 @@ namespace YCDRCards.Cards
                 {
                     positive = false,
                     stat = "Movement Speed",
-                    amount = "-70%",
+                    amount = "-65%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "100%",
+                    amount = "+150%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Regeneration",
-                    amount = "+25 * 20%",
+                    amount = "+25 * 40%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Damage Taken Over",
-                    amount = "+2s",
+                    amount = "+1.5s",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

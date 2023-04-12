@@ -23,13 +23,14 @@ namespace YCDRCARDS.MonoBehaviours
             {
                 ApplyModifiers();
             }
-            duration = 0.1f;
+            duration = 0.15f;
             ColorEffect effect = player.gameObject.AddComponent<ColorEffect>();
             effect.SetColor(Color.red);
         }
         public override void OnStart()
         {
             gunStatModifier.damage_mult = 2;
+            gunStatModifier.percentageDamage_mult = 2f;
             gunStatModifier.projectileColor = Color.blue;
             block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, new Action<BlockTrigger.BlockTriggerType>(OnBlock));
             SetLivesToEffect(int.MaxValue);

@@ -18,8 +18,8 @@ namespace YCDRCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
 //
-            statModifiers.movementSpeed = 1.25f;
-            statModifiers.sizeMultiplier = 0.93f;
+            statModifiers.movementSpeed = 1.35f;
+            statModifiers.sizeMultiplier = 0.92f;
             statModifiers.health = 0.95f;
 
         }
@@ -59,14 +59,14 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Size",
-                    amount = "-7%",
+                    amount = "-8%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Speed",
-                    amount = "+25%",
+                    amount = "+35%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

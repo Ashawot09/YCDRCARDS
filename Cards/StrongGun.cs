@@ -16,9 +16,9 @@ namespace YCDRCards.Cards
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
-
-            gun.damage = 1.35f;
-            gun.reloadTime = 1.35f;
+            cardInfo.allowMultiple = true;
+            gun.damage = 1.8f;
+            gun.reloadTime = 1.8f;
 
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
@@ -55,14 +55,14 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "DMG",
-                    amount = "35%",
+                    amount = "80%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = false,
                     stat = "Reload Time",
-                    amount = "+35%",
+                    amount = "+80%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

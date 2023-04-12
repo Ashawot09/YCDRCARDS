@@ -18,20 +18,21 @@ namespace YCDRCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
 //
-            gun.damage = 1.5f;
-            gun.percentageDamage = 0.5f;
+            gun.damage = 1.6f;
+            gun.percentageDamage = 0.25f;
             gun.projectileColor = Color.red;
-            statModifiers.movementSpeed = 0.7f;
-            gun.projectileSpeed = 3f;
-            gun.knockback = 20f;
-            gun.reloadTime = 1.4f;
-
+            statModifiers.movementSpeed = 0.65f;
+            gun.projectileSpeed = 4f;
+            gun.knockback = 25f;
+            gun.reloadTime = 2f;
+            gun.attackSpeed = 1.25f;
         }   
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
-//
 
             gunAmmo.maxAmmo = 1;
+
+            player.gameObject.AddComponent<OneBulletMono>();
 
             List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
             ObjectsToSpawn objectsToSpawn = ((GameObject)Resources.Load("0 cards/Timed detonation")).GetComponent<Gun>().objectsToSpawn[0];
@@ -42,7 +43,10 @@ namespace YCDRCards.Cards
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
-//
+            if (player.transform.gameObject.GetComponent<OneBulletMono>() != null)
+            {
+                Destroy(player.transform.gameObject.GetComponent<OneBulletMono>());
+            }  
         }
 
         protected override string GetTitle()
@@ -69,14 +73,14 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "DMG",
-                    amount = "150%, +50% of enemy health",
+                    amount = "160%, +25% of enemy health",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Reload time",
-                    amount = "+40%",
+                    amount = "+100%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
@@ -90,14 +94,14 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Projectile Speed",
-                    amount = "+300%",
+                    amount = "+400%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = false,
                     stat = "Movement Speed",
-                    amount = "-30%",
+                    amount = "-35%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

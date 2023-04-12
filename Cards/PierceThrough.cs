@@ -19,7 +19,7 @@ namespace YCDRCards.Cards
  
             cardInfo.allowMultiple = false;
             gun.unblockable = true;
-            gun.damage = 1.3f;
+            gun.damage = 1.1f;
             gun.projectileSpeed = 1.15f;
             gun.reloadTime = 1.4f;
 
@@ -59,7 +59,7 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "DMG",
-                    amount = "+30%",
+                    amount = "+10%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

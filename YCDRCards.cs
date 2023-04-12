@@ -4,6 +4,8 @@ using UnboundLib.Cards;
 using YCDRCards.Cards;
 using YCDRCards.Cards.Chaos;
 using YCDRCards.Cards.Blocker;
+using YCDRCards.Cards.Doped;
+using YCDRCards.Cards.Skybound;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ModdingUtils;
@@ -15,7 +17,6 @@ using System;
 using System.Collections.ObjectModel;
 using WillsWackyManagers.Utils;
 using ModdingUtils.GameModes;
-using YCDRCards.Cards.Doped;
 
 namespace YCDRCards
 {
@@ -33,7 +34,7 @@ namespace YCDRCards
     {
         private const string ModId = "com.YCDR.rounds.YCDRCards";
         private const string ModName = "YCDRCards";
-        public const string Version = "1.0.0"; // What version are we on (major.minor.patch)?
+        public const string Version = "1.5.2"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "YCDR";
         public static YCDRCards instance { get; private set; }
 
@@ -77,6 +78,12 @@ namespace YCDRCards
             CustomCard.BuildCard<MonsterSlayer>();
             CustomCard.BuildCard<Longshot>();
             CustomCard.BuildCard<Personal>();
+            CustomCard.BuildCard<Thrust>();
+            CustomCard.BuildCard<FixedBullets>();
+            CustomCard.BuildCard<Concentrate>();
+            CustomCard.BuildCard<DoubleMag>();
+            
+
             //uses effect threshholds
             CustomCard.BuildCard<Beserk>();
             CustomCard.BuildCard<Shrink>();
@@ -86,6 +93,11 @@ namespace YCDRCards
             CustomCard.BuildCard<Sprint>();
             CustomCard.BuildCard<Lifeblood>(); 
             CustomCard.BuildCard<BlackShield>();
+            CustomCard.BuildCard<ToxicMines>();
+            CustomCard.BuildCard<Ascend>();
+            CustomCard.BuildCard<Descend>();
+            //CustomCard.BuildCard<Dissipate>();
+            //CustomCard.BuildCard<RecycledShields>();
 
             //Chaos Class
             CustomCard.BuildCard<ChaosTime>((card) => ChaosTime.Card = card);
@@ -94,13 +106,15 @@ namespace YCDRCards
             CustomCard.BuildCard<MoreBalls>((card) => MoreBalls.Card = card);
             //monobehaviours
             CustomCard.BuildCard<ChaosBalls>((card) => ChaosBalls.Card = card);
+            CustomCard.BuildCard<Bubblewrap>((card) => Bubblewrap.Card = card);
 
             //Blockers Class
-            CustomCard.BuildCard<Blocker>((card) => Blocker.Card = card);
+            CustomCard.BuildCard<Blocker>((card) => Blocker.Card = card);           
             CustomCard.BuildCard<Warden>((card) => Warden.Card = card);
             CustomCard.BuildCard<Mending>((card) => Mending.Card = card);
             //monobehaviours
             CustomCard.BuildCard<BodyFat>((card) => BodyFat.Card = card);
+            CustomCard.BuildCard<Karma>((card) => Karma.Card = card);
 
             //Doping Class
             CustomCard.BuildCard<DopedGate>((card) => DopedGate.Card = card);
@@ -108,6 +122,14 @@ namespace YCDRCards
             CustomCard.BuildCard<Junkie>((card) => Junkie.Card = card);
             CustomCard.BuildCard<Juiced>((card) => Juiced.Card = card);
             CustomCard.BuildCard<OlympianAthlete>((card) => OlympianAthlete.Card = card);
+
+            //Skybound Class
+            CustomCard.BuildCard<SkyboundGate>((card) => SkyboundGate.Card = card);
+            //monobehaviours
+            CustomCard.BuildCard<Tailwind>((card) => Tailwind.Card = card);
+            CustomCard.BuildCard<BombRun>((card) => BombRun.Card = card);
+            CustomCard.BuildCard<Napalm>((card) => Napalm.Card = card);
+
         }
     }
 }

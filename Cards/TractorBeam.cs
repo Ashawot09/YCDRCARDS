@@ -18,8 +18,8 @@ namespace YCDRCards.Cards
         {
 
             cardInfo.allowMultiple = false;
-            gun.knockback = -12f;
-            gun.attackSpeed = 0.65f;
+            gun.knockback = -14f;
+            gun.attackSpeed = 0.625f;
             gun.damage = 0.01f;
             gun.projectileSpeed = 4f;
             gun.reloadTime = 0.05f;
@@ -31,6 +31,8 @@ namespace YCDRCards.Cards
 
 
             player.gameObject.AddComponent<AlwaysBlockableMono>();
+
+            player.gameObject.AddComponent<OneBulletMono>();
 
             gunAmmo.maxAmmo += 2;
         }
@@ -81,7 +83,7 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Attack Speed",
-                    amount = "+35%",
+                    amount = "-40%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

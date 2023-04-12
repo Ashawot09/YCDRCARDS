@@ -17,10 +17,11 @@ namespace YCDRCards.Cards
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
-
+            cardInfo.allowMultiple = false;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
+            characterStats.health = 1.25f;
             characterStats.GetAdditionalData().willpower *= 3f;
             characterStats.GetAdditionalData().MassModifier *= 2000f;
         }
@@ -43,7 +44,7 @@ namespace YCDRCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return CardInfo.Rarity.Uncommon;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -55,8 +56,15 @@ namespace YCDRCards.Cards
                     stat = "Stuns",
                     amount = "None",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Health",
+                    amount = "+25%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
-            };
+        };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {

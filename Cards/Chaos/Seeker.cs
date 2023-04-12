@@ -13,7 +13,7 @@ using ClassesManagerReborn.Util;
 
 namespace YCDRCards.Cards.Chaos
 {
-    class MoreBalls : CustomCard
+    class Seeker : CustomCard
     {
         internal static CardInfo Card = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
@@ -41,7 +41,7 @@ namespace YCDRCards.Cards.Chaos
         }
         public override void Callback()
         {
-            gameObject.GetOrAddComponent<ClassNameMono>().className = ChaosClass.name;
+            gameObject.GetOrAddComponent<ClassNameMono>().className = ChaosClass.name;              
         }
 
         protected override string GetTitle()

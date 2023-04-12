@@ -18,7 +18,7 @@ namespace YCDRCards.Cards
         {
             //
             cardInfo.allowMultiple = false;
-            gun.damage = 1.2f;
+            gun.damage = 1.35f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
@@ -30,6 +30,7 @@ namespace YCDRCards.Cards
             gun.reflects = 0;
             gun.destroyBulletAfter = 1;
             gun.bodyRecoil = 0;
+            gun.recoil = 0;
 
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
@@ -62,7 +63,7 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+20%",
+                    amount = "+35%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
 

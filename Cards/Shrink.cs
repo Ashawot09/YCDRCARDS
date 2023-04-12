@@ -20,7 +20,7 @@ namespace YCDRCards.Cards
         {
 
             cardInfo.allowMultiple = false;
-            statModifiers.sizeMultiplier = 0.7f;
+            statModifiers.sizeMultiplier = 0.65f;
 
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
@@ -30,7 +30,7 @@ namespace YCDRCards.Cards
             HealthBasedEffect effect = player.gameObject.AddComponent<HealthBasedEffect>();
             effect.SetPercThresholdMax(0.9f);
             effect.SetColor(Color.cyan);
-            effect.characterStatModifiersModifier.sizeMultiplier_mult = 1.5f;
+            effect.characterStatModifiersModifier.sizeMultiplier_mult = 1.60f;
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {

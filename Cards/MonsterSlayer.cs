@@ -17,8 +17,8 @@ namespace YCDRCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
 //
-            gun.percentageDamage = 0.12f;
-            gun.attackSpeed = 0.85f;
+            gun.percentageDamage = 0.06f;
+            gun.attackSpeed = 0.8f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
@@ -53,14 +53,14 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Percentage DMG",
-                    amount = "+12%",
+                    amount = "+6%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Attack Speed",
-                    amount = "+15%",
+                    amount = "-20%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
             };

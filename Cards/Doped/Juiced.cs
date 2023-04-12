@@ -8,6 +8,7 @@ using UnboundLib.Cards;
 using UnityEngine;
 using YCDRCARDS.MonoBehaviours;
 using YCDRCards.Cards;
+using YCDRCARDS.Extensions;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ClassesManagerReborn.Util;
 using YCDRCards.Cards.Chaos;
@@ -33,6 +34,7 @@ namespace YCDRCards.Cards.Doped
             gun.attackSpeed = 0.84f;
             gun.knockback = 1.16f;
             gun.destroyBulletAfter = 1.16f;
+            
 
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
@@ -44,7 +46,7 @@ namespace YCDRCards.Cards.Doped
             characterStats.numberOfJumps += 1;
             gun.reflects += 2;
             characterStats.regen += 2;
-
+            characterStats.GetAdditionalData().MassModifier *= 80f;
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {

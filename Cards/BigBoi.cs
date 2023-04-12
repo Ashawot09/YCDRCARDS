@@ -18,8 +18,8 @@ namespace YCDRCards.Cards
         {
 //
             statModifiers.movementSpeed = 0.95f;
-            statModifiers.sizeMultiplier = 1.05f;
-            statModifiers.health = 1.5f;
+            statModifiers.sizeMultiplier = 1.08f;
+            statModifiers.health = 1.90f;
 
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
@@ -56,7 +56,7 @@ namespace YCDRCards.Cards
                 {
                     positive = false,
                     stat = "Size",
-                    amount = "+5%",
+                    amount = "+9%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
@@ -70,9 +70,9 @@ namespace YCDRCards.Cards
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+50%",
+                    amount = "+90%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
+                }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()

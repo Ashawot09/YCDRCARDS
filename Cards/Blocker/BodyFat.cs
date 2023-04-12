@@ -10,7 +10,7 @@ using YCDRCARDS.MonoBehaviours;
 using YCDRCards.Cards;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ClassesManagerReborn.Util;
-using YCDRCards.Cards.Chaos;
+using YCDRCards.Cards.Blocker;
 
 namespace YCDRCards.Cards.Blocker
 {
@@ -47,7 +47,7 @@ namespace YCDRCards.Cards.Blocker
         }
         protected override string GetDescription()
         {
-            return "Gain 100% temporary health for 2.5 seconds after block";
+            return "Gain 125% temporary health for 2 seconds after block";
         }
         protected override GameObject GetCardArt()
         {

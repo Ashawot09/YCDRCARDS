@@ -18,19 +18,19 @@ namespace YCDRCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, global::CharacterStatModifiers statModifiers, Block block)
         {
 //
-            statModifiers.movementSpeed = 1.5f;
             gun.projectielSimulatonSpeed = 0.8f;
             gun.projectileSpeed = 1.5f;
-            gun.reloadTime = 1.5f;
+            gun.reloadTime = 2f;
             gun.ignoreWalls = true;
+            gun.damage = 0.65f;
+            gun.projectileColor = Color.red;
 
         }   
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, global::CharacterStatModifiers characterStats)
         {
 //
 
-            gunAmmo.maxAmmo += 10;
-            gun.bursts += 1;
+            gunAmmo.maxAmmo += 2;
 
             List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
             ObjectsToSpawn objectsToSpawn = ((GameObject)Resources.Load("0 cards/Homing")).GetComponent<Gun>().objectsToSpawn[0];
@@ -64,13 +64,7 @@ namespace YCDRCards.Cards
         {
             return new CardInfoStat[]
             {
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Movement Speed",
-                    amount = "+50%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
+
                 new CardInfoStat()
                 {
                     positive = true,
@@ -89,7 +83,7 @@ namespace YCDRCards.Cards
                 {
                     positive = false,
                     stat = "Reload Time",
-                    amount = "+50%",
+                    amount = "+100%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
@@ -102,8 +96,8 @@ namespace YCDRCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Ammo",
-                    amount = "+10",
+                    stat = "Damage",
+                    amount = "-35%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
 
